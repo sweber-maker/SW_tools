@@ -1,10 +1,10 @@
 # SW_tools
 
-Personal tools. First tool: **v4.2 → v3.1 antibody form converter, version 1.02**.
+Personal tools. First tool: **v4.2 → v3.1 antibody form converter, version 1.03**.
 
 ## Use in Google Colab
 
-Open `converter/V4.2_to_V3.1_Fast_Batch_Fixed_converted_v1.02.ipynb` in Colab, click ▶ once to start, then use **Choose files** to select one or multiple **v4.2 input workbooks**. Conversion starts automatically. Setup and implementation code are hidden by default. The supplied v3.1 template is embedded; you do not need to upload it. Each input produces a separately named ZIP, workbook, and review report. Download the ZIP using the button printed for that file.
+Open `converter/V4.2_to_V3.1_Fast_Batch_Fixed_converted_v1.03.ipynb` in Colab, click ▶ once to start, then drag files into the upload area or use **Choose files** to select one or multiple **v4.2 input workbooks**. Conversion starts automatically. Setup and implementation code are hidden by default. The supplied v3.1 template is embedded; you do not need to upload it. Each input produces a separately named ZIP, workbook, and review report. Download the ZIP using the button printed for that file.
 
 ## Use locally or in Codex
 
@@ -14,9 +14,9 @@ python converter/convert.py 'your input.xlsx' --output-dir converted
 python -m unittest discover -s converter/tests -v
 ```
 
-Outputs: `your input_converted_v1.02.xlsx`, matching ZIP, and JSON report. Repeating conversion with the same name/version in the same output directory replaces those generated outputs. Keep earlier releases in separate directories.
+Outputs: `your input_converted_v1.03.xlsx`, matching ZIP, and JSON report. Repeating conversion with the same name/version in the same output directory replaces those generated outputs. Keep earlier releases in separate directories.
 
-## What version 1.02 does
+## What version 1.03 does
 
 - Uses the supplied v3.1 template, retaining all six tabs, styling, merged cells, drawings, print settings, formulas, and supporting files. Writes worksheet XML directly to avoid openpyxl's loss of Excel extensions. Removes Excel dropdown controls while preserving cell colors and other validation.
 - Writes sequence data from row 4, preserving all three template heading/instruction rows. Maps source A:C and G:V to the v3.1 sequence fields. Preserves representable source isotypes; maps mini-binders using the supplied example and reports inferred isotypes. Rejects extra-construct/bispecific data rather than silently dropping it.
@@ -27,3 +27,5 @@ Outputs: `your input_converted_v1.02.xlsx`, matching ZIP, and JSON report. Repea
 Validation includes synthetic tests for template structure/style preservation, occupied/blank Order Details, sequence placement, ZIP integrity and source-based naming. The supplied Amazon EGFR example converts 258 designs: all Sequence and Order Details values match the supplied expected workbook. Contact values intentionally follow the input because the expected workbook contains different contact details. Analytical SEC is occupied in the input but absent from the expected output; it is recorded as an unmapped request in the report. The workbook has been parsed successfully but has not been visually checked in Microsoft Excel.
 
 The original uploaded notebook is retained under `converter/originals/`; the supplied template is under `converter/templates/`.
+
+Version 1.03 upload controls were tested in Chromium with a mocked Colab kernel bridge: multi-file drag/drop, file picker, per-file error recovery and named ZIP download. Actual Colab browser integration still needs a user check. Optional browser check: `python converter/tests/check_upload_browser.py` requires Playwright and Chromium.

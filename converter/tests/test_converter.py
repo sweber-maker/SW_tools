@@ -43,9 +43,9 @@ class ConverterTests(unittest.TestCase):
     def test_download_names(self):
         with tempfile.TemporaryDirectory() as d:
             paths=run_batch({'My upload.xlsx':source()},d)
-            self.assertEqual(paths[0].name,'My upload_converted_v1.02.zip')
+            self.assertEqual(paths[0].name,'My upload_converted_v1.03.zip')
             with zipfile.ZipFile(paths[0]) as z:
-                self.assertTrue(all(n.startswith('My upload_converted_v1.02') for n in z.namelist()))
+                self.assertTrue(all(n.startswith('My upload_converted_v1.03') for n in z.namelist()))
                 self.assertIsNone(z.testzip())
     def test_missing_designs(self):
         w=Workbook(); b=io.BytesIO(); w.save(b)

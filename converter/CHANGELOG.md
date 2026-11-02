@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.03
+- Add an explicit drag-and-drop upload area with a native multiple-file picker.
+- Convert automatically on drop or selection and provide browser ZIP downloads.
+- Retain hidden startup code and source-based output naming.
+
+
 ## 1.02
 - Replace the multi-cell Colab workflow with one hidden-code startup cell and a single multiple-file picker.
 - Automatically convert selected files and show one download button per result.

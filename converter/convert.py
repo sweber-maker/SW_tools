@@ -6,7 +6,7 @@ from lxml import etree as ET
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 
-VERSION = '1.01'
+VERSION = '1.02'
 TEMPLATE = Path(__file__).parent / 'templates/v3.1.xlsx'
 NS = 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'
 Q = lambda name: f'{{{NS}}}{name}'

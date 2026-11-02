@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.02
+- Replace the multi-cell Colab workflow with one hidden-code startup cell and a single multiple-file picker.
+- Automatically convert selected files and show one download button per result.
+- Retain release 1.01 notebook for traceability; workbook conversion rules remain unchanged.
+
+
 ## 1.01
 - Initial repository release based on uploaded Fast Batch Fixed notebook.
 - Preserve original v3.1 workbook package and formatting, remove dropdown controls.

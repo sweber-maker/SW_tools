@@ -29,3 +29,7 @@ Validation includes synthetic tests for template structure/style preservation, o
 The original uploaded notebook is retained under `converter/originals/`; the supplied template is under `converter/templates/`.
 
 Version 1.03 upload controls were tested in Chromium with a mocked Colab kernel bridge: multi-file drag/drop, file picker, per-file error recovery and named ZIP download. Actual Colab browser integration still needs a user check. Optional browser check: `python converter/tests/check_upload_browser.py` requires Playwright and Chromium.
+
+## Antigen lookup
+
+[Antigen Lookup v1.01](antigen_lookup/README.md) adds a manufacturer-evidence prototype, BLI/SPR quantity calculations from the supplied workbook, price/stock offer reporting, and a Colab notebook. Website fields and availability require review; live vendor integration remains unverified. The original local app is preserved in the release folder.

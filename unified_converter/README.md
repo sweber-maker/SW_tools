@@ -6,7 +6,7 @@ Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or
 
 ## Real-file regression set
 
-[The 12-file customer case list](customer_cases.json) now covers 10 v4.2 forms and two existing v3.1 forms. **All 12 pass** the source-to-output validation checks; 1,330 supplied design rows are retained, including the duplicate IL2 upload. See the [customer results](Twist_Unified_Intake_Converter_v2.03_customer_test_results.json) and [release report](Twist_Unified_Intake_Converter_v2.03_test_report.md).
+[The 13-file customer case list](customer_cases.json) now covers 11 v4.2 forms and two existing v3.1 forms. **All 13 pass** their expected conversion/rejection checks. The initial 12 files retain 1,330 normal design rows, including the duplicate IL2 upload. The Summit file has nine three-construct and three two-construct rows: both normal formats are rejected and a separate 33-construct DNA list is verified, with every supplied Kozak/leader prefix already present. See the [customer results](Twist_Unified_Intake_Converter_v2.03_customer_test_results.json) and [release report](Twist_Unified_Intake_Converter_v2.03_test_report.md).
 
 The tool now maps no-physical-shipment and Yes/No sterile-filtration choices correctly, respects Micronic tube volume, repairs existing v3.1 inputs through template normalization, and splits mixed one/two-chain EC inputs by chain count. Existing v3.1 sources receive a normalized v3.1 output only.
 

@@ -2,6 +2,8 @@
 
 ## 2.03
 
+- Extend the private catalog to 13 real files with Summit: nine three-construct and three two-construct rows. Normal routes reject it; the fallback exports 33 DNA constructs with existing prefixes retained. Converter code/notebook is unchanged; test coverage is extended.
+
 - Add 12 private real-workbook regression cases by filename, hash and independent expected counts. All 12 pass.
 - Correct no-shipment cross-field mapping, affirmative/negative sterile-filtration mapping and Micronic container volume matching.
 - Normalize existing v3.1 files, repairing invalid input styles while preserving values, service selections and notes.

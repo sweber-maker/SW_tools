@@ -1,8 +1,8 @@
 {
   "version": "2.03",
   "notebook_sha256": "9553f122d75f9f5583f7cf81200b2bee47f4820467cd39ee79b17048628dbb1d",
-  "tests_run": 12,
-  "passed": 12,
+  "tests_run": 13,
+  "passed": 13,
   "failed": 0,
   "errors": 0,
   "cases": [
@@ -185,6 +185,22 @@
       "ec_workbooks": 1,
       "extra_construct_rows": 0,
       "archive": "07_23_Twist_QC_VHH_order_SW_converted_v2.03.zip"
+    },
+    {
+      "id": "customer_13",
+      "filename": "Antibodies custom form v4.2_Summit-20261102_SW3.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 12,
+        "dna_constructs_verified": 33,
+        "prefixes_already_present": 33,
+        "dna_sequences_changed": 0,
+        "normal_v3_and_ec_rejected": true
+      },
+      "ec_workbooks": 0,
+      "extra_construct_rows": 9,
+      "archive": "Antibodies custom form v4.2_Summit-20261102_SW3_converted_v2.03.zip"
     }
   ],
   "outcomes": [
@@ -234,6 +250,10 @@
     },
     {
       "test": "__main__.CustomerTests.test_customer_12",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_13",
       "status": "passed"
     }
   ],

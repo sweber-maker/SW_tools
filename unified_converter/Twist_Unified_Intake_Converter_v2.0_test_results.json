@@ -1,0 +1,233 @@
+{
+  "notebook": "Twist_Unified_Intake_Converter_v2.0.ipynb",
+  "sha256": "f71e2ffdcd2cf0e0542b98e28876e9d9c3f8fe3ea86e02afd06fbdcc63ad82d9",
+  "run_at_utc": "2026-11-04T17:07:20.544659+00:00",
+  "python": "3.12.14",
+  "tests_run": 51,
+  "passed": 37,
+  "failed": 14,
+  "errors": 0,
+  "skipped": 0,
+  "outcomes": [
+    {
+      "test": "test_unified.BatchTests.test_archive_has_original_filename_and_version",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 194, in test_archive_has_original_filename_and_version\n    path,_,_=self.batch({'Customer.xlsx':b'good'});self.assertIn('Customer',Path(path).name);self.assertIn('converted',Path(path).name)\n                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Customer' not found in 'Twist_Unified_Converter_v2.0_Output.zip'\n"
+    },
+    {
+      "test": "test_unified.BatchTests.test_batch_continues_after_bad_input",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.BatchTests.test_case_insensitive_collision_reported",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.BatchTests.test_outputs_have_version_suffix",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 196, in test_outputs_have_version_suffix\n    _,names,_=self.batch({'Customer.xlsx':b'good'});self.assertIn('Customer_converted_v2.0_EC.xlsx',names)\n                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Customer_converted_v2.0_EC.xlsx' not found in ['Customer_EC.xlsx', 'conversion_report.csv', 'conversion_warnings.csv']\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_csv_partial_row_must_not_silently_disappear",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 158, in test_csv_partial_row_must_not_silently_disappear\n    with self.assertRaises(ValueError):N['parse_csv_rows'](data)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_ec_roundtrip_plate_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_histidine_tag_length_counts_both_codons",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 163, in test_histidine_tag_length_counts_both_codons\n    self.assertEqual(sheet.cell(4,h['histaglength']).value,6);out.close()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 3 != 6\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_named_design_missing_sequence_is_not_silently_skipped",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 167, in test_named_design_missing_sequence_is_not_silently_skipped\n    with self.assertRaises(ValueError):N['process_one'](pack(w),'input.xlsx')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_underscore_tube_filename_selects_tube",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 171, in test_underscore_tube_filename_selects_tube\n    self.assertEqual(meta['container'],'tube')\nAssertionError: 'plate' != 'tube'\n- plate\n+ tube\n\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_v3_custom_kozak_sequence_preserved",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 152, in test_v3_custom_kozak_sequence_preserved\n    out,_,_=N['convert_v3'](pack(w));r=workbook(out);self.assertEqual(r['Sequence']['I3'].value,'GCCACCATG');r.close()\n                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: None != 'GCCACCATG'\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_v3_isotype_preserved",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 148, in test_v3_isotype_preserved\n    def test_v3_isotype_preserved(self):self.assertEqual(self.w['Sequence']['D3'].value,'hIgG2')\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'hIgG1' != 'hIgG2'\n- hIgG1\n?     ^\n+ hIgG2\n?     ^\n\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_v3_keeps_template_instruction_row",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 144, in test_v3_keeps_template_instruction_row\n    self.assertEqual(self.w['Sequence']['A1'].value,'V3.1')\nAssertionError: None != 'V3.1'\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_v3_order_cell_line_from_source",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 146, in test_v3_order_cell_line_from_source\n    def test_v3_order_cell_line_from_source(self):self.assertEqual(self.w['Order Details']['B5'].value,'CHO')\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'HEK293' != 'CHO'\n- HEK293\n+ CHO\n\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_v3_order_scale_from_source",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 145, in test_v3_order_scale_from_source\n    def test_v3_order_scale_from_source(self):self.assertEqual(self.w['Order Details']['B3'].value,'HT IgG 1 mL Purified')\n                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'HT IgG 4 mL Purified' != 'HT IgG 1 mL Purified'\n- HT IgG 4 mL Purified\n?        ^\n+ HT IgG 1 mL Purified\n?        ^\n\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_v3_order_unoccupied_stays_blank",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 147, in test_v3_order_unoccupied_stays_blank\n    def test_v3_order_unoccupied_stays_blank(self):self.assertIsNone(self.w['Order Details']['B4'].value)\n                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Pooled' is not None\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_v3_plate_well_preserved",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 149, in test_v3_plate_well_preserved\n    def test_v3_plate_well_preserved(self):self.assertEqual((self.w['Sequence']['A3'].value,self.w['Sequence']['B3'].value),('2','B1'))\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Tuples differ: (None, None) != ('2', 'B1')\n\nFirst differing element 0:\nNone\n'2'\n\n- (None, None)\n+ ('2', 'B1')\n"
+    },
+    {
+      "test": "test_unified.RequirementRegressionTests.test_v3_retains_template_tabs",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 142, in test_v3_retains_template_tabs\n    self.assertEqual(self.w.sheetnames,['READ ME','Contact Information','Sequence','Order Details','Additional Service Requests','Sheet3'])\nAssertionError: Lists differ: ['Sequence', 'Order Details'] != ['READ ME', 'Contact Information', 'Sequenc[56 chars]et3']\n\nFirst differing element 0:\n'Sequence'\n'READ ME'\n\nSecond list contains 4 additional elements.\nFirst extra element 2:\n'Sequence'\n\n- ['Sequence', 'Order Details']\n+ ['READ ME',\n+  'Contact Information',\n+  'Sequence',\n+  'Order Details',\n+  'Additional Service Requests',\n+  'Sheet3']\n"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_corrupt_workbook",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_csv_ambiguous_role",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_csv_duplicate_chain",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_csv_empty",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_csv_inconsistent_well",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_csv_missing_headers",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_csv_missing_partner",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_csv_pairs_by_role_not_row_order",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_dropdown_match_preserves_custom",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_embedded_archives",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_empty_designs",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_extra_construct_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_1chain_nickel_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_1chain_nickel_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_1chain_none_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_1chain_none_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_1chain_protein_a_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_1chain_protein_a_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_2chain_nickel_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_2chain_nickel_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_2chain_none_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_2chain_none_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_2chain_protein_a_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_flavor_2chain_protein_a_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_invalid_extension",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_mixed_chains_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_mixed_purification_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_more_than_96_rows",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_route_csv",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_route_ec",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_route_legacy",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_route_v42",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_unrecognized_workbook",
+      "status": "passed"
+    },
+    {
+      "test": "test_unified.UnifiedTests.test_validation_detects_wrong_count",
+      "status": "passed"
+    }
+  ],
+  "limits": "Synthetic fixtures; Colab UI not executed. Batch wrapper tests mock conversion and redirect only the output path.",
+  "openpyxl": "3.1.5"
+}

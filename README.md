@@ -29,3 +29,7 @@ Validation includes synthetic tests for template structure/style preservation, o
 The original uploaded notebook is retained under `converter/originals/`; the supplied template is under `converter/templates/`.
 
 Version 1.03 upload controls were tested in Chromium with a mocked Colab kernel bridge: multi-file drag/drop, file picker, per-file error recovery and named ZIP download. Actual Colab browser integration still needs a user check. Optional browser check: `python converter/tests/check_upload_browser.py` requires Playwright and Chromium.
+
+## Unified converter v2.0 — testing baseline
+
+The [uploaded unified notebook and test suite](unified_converter/README.md) are now stored separately. Baseline results: **51 tests, 37 passed and 14 failed**. See the [failure report](unified_converter/Twist_Unified_Intake_Converter_v2.0_test_report.md) before using this broader converter. The v1.03 converter remains available.

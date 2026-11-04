@@ -1,0 +1,222 @@
+test_archive_has_original_filename_and_version (test_unified.BatchTests.test_archive_has_original_filename_and_version) ... FAIL
+test_batch_continues_after_bad_input (test_unified.BatchTests.test_batch_continues_after_bad_input) ... ok
+test_case_insensitive_collision_reported (test_unified.BatchTests.test_case_insensitive_collision_reported) ... ok
+test_outputs_have_version_suffix (test_unified.BatchTests.test_outputs_have_version_suffix) ... FAIL
+test_csv_partial_row_must_not_silently_disappear (test_unified.RequirementRegressionTests.test_csv_partial_row_must_not_silently_disappear) ... FAIL
+test_ec_roundtrip_plate_preserved (test_unified.RequirementRegressionTests.test_ec_roundtrip_plate_preserved) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/openpyxl/styles/stylesheet.py:237: UserWarning: Workbook contains no default style, apply openpyxl's default
+  warn("Workbook contains no default style, apply openpyxl's default")
+ok
+test_histidine_tag_length_counts_both_codons (test_unified.RequirementRegressionTests.test_histidine_tag_length_counts_both_codons) ... FAIL
+test_named_design_missing_sequence_is_not_silently_skipped (test_unified.RequirementRegressionTests.test_named_design_missing_sequence_is_not_silently_skipped) ... FAIL
+test_underscore_tube_filename_selects_tube (test_unified.RequirementRegressionTests.test_underscore_tube_filename_selects_tube) ... FAIL
+test_v3_custom_kozak_sequence_preserved (test_unified.RequirementRegressionTests.test_v3_custom_kozak_sequence_preserved) ... FAIL
+test_v3_isotype_preserved (test_unified.RequirementRegressionTests.test_v3_isotype_preserved) ... FAIL
+test_v3_keeps_template_instruction_row (test_unified.RequirementRegressionTests.test_v3_keeps_template_instruction_row) ... FAIL
+test_v3_order_cell_line_from_source (test_unified.RequirementRegressionTests.test_v3_order_cell_line_from_source) ... FAIL
+test_v3_order_scale_from_source (test_unified.RequirementRegressionTests.test_v3_order_scale_from_source) ... FAIL
+test_v3_order_unoccupied_stays_blank (test_unified.RequirementRegressionTests.test_v3_order_unoccupied_stays_blank) ... FAIL
+test_v3_plate_well_preserved (test_unified.RequirementRegressionTests.test_v3_plate_well_preserved) ... FAIL
+test_v3_retains_template_tabs (test_unified.RequirementRegressionTests.test_v3_retains_template_tabs) ... FAIL
+test_corrupt_workbook (test_unified.UnifiedTests.test_corrupt_workbook) ... ok
+test_csv_ambiguous_role (test_unified.UnifiedTests.test_csv_ambiguous_role) ... ok
+test_csv_duplicate_chain (test_unified.UnifiedTests.test_csv_duplicate_chain) ... ok
+test_csv_empty (test_unified.UnifiedTests.test_csv_empty) ... ok
+test_csv_inconsistent_well (test_unified.UnifiedTests.test_csv_inconsistent_well) ... ok
+test_csv_missing_headers (test_unified.UnifiedTests.test_csv_missing_headers) ... ok
+test_csv_missing_partner (test_unified.UnifiedTests.test_csv_missing_partner) ... ok
+test_csv_pairs_by_role_not_row_order (test_unified.UnifiedTests.test_csv_pairs_by_role_not_row_order) ... ok
+test_dropdown_match_preserves_custom (test_unified.UnifiedTests.test_dropdown_match_preserves_custom) ... ok
+test_embedded_archives (test_unified.UnifiedTests.test_embedded_archives) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/openpyxl/worksheet/_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+ok
+test_empty_designs (test_unified.UnifiedTests.test_empty_designs) ... ok
+test_extra_construct_rejected (test_unified.UnifiedTests.test_extra_construct_rejected) ... ok
+test_flavor_1chain_nickel_plate (test_unified.UnifiedTests.test_flavor_1chain_nickel_plate) ... ok
+test_flavor_1chain_nickel_tube (test_unified.UnifiedTests.test_flavor_1chain_nickel_tube) ... ok
+test_flavor_1chain_none_plate (test_unified.UnifiedTests.test_flavor_1chain_none_plate) ... ok
+test_flavor_1chain_none_tube (test_unified.UnifiedTests.test_flavor_1chain_none_tube) ... ok
+test_flavor_1chain_protein_a_plate (test_unified.UnifiedTests.test_flavor_1chain_protein_a_plate) ... ok
+test_flavor_1chain_protein_a_tube (test_unified.UnifiedTests.test_flavor_1chain_protein_a_tube) ... ok
+test_flavor_2chain_nickel_plate (test_unified.UnifiedTests.test_flavor_2chain_nickel_plate) ... ok
+test_flavor_2chain_nickel_tube (test_unified.UnifiedTests.test_flavor_2chain_nickel_tube) ... ok
+test_flavor_2chain_none_plate (test_unified.UnifiedTests.test_flavor_2chain_none_plate) ... ok
+test_flavor_2chain_none_tube (test_unified.UnifiedTests.test_flavor_2chain_none_tube) ... ok
+test_flavor_2chain_protein_a_plate (test_unified.UnifiedTests.test_flavor_2chain_protein_a_plate) ... ok
+test_flavor_2chain_protein_a_tube (test_unified.UnifiedTests.test_flavor_2chain_protein_a_tube) ... ok
+test_invalid_extension (test_unified.UnifiedTests.test_invalid_extension) ... ok
+test_mixed_chains_rejected (test_unified.UnifiedTests.test_mixed_chains_rejected) ... ok
+test_mixed_purification_rejected (test_unified.UnifiedTests.test_mixed_purification_rejected) ... ok
+test_more_than_96_rows (test_unified.UnifiedTests.test_more_than_96_rows) ... ok
+test_route_csv (test_unified.UnifiedTests.test_route_csv) ... ok
+test_route_ec (test_unified.UnifiedTests.test_route_ec) ... ok
+test_route_legacy (test_unified.UnifiedTests.test_route_legacy) ... ok
+test_route_v42 (test_unified.UnifiedTests.test_route_v42) ... ok
+test_unrecognized_workbook (test_unified.UnifiedTests.test_unrecognized_workbook) ... ok
+test_validation_detects_wrong_count (test_unified.UnifiedTests.test_validation_detects_wrong_count) ... ok
+
+======================================================================
+FAIL: test_archive_has_original_filename_and_version (test_unified.BatchTests.test_archive_has_original_filename_and_version)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 194, in test_archive_has_original_filename_and_version
+    path,_,_=self.batch({'Customer.xlsx':b'good'});self.assertIn('Customer',Path(path).name);self.assertIn('converted',Path(path).name)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Customer' not found in 'Twist_Unified_Converter_v2.0_Output.zip'
+
+======================================================================
+FAIL: test_outputs_have_version_suffix (test_unified.BatchTests.test_outputs_have_version_suffix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 196, in test_outputs_have_version_suffix
+    _,names,_=self.batch({'Customer.xlsx':b'good'});self.assertIn('Customer_converted_v2.0_EC.xlsx',names)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Customer_converted_v2.0_EC.xlsx' not found in ['Customer_EC.xlsx', 'conversion_report.csv', 'conversion_warnings.csv']
+
+======================================================================
+FAIL: test_csv_partial_row_must_not_silently_disappear (test_unified.RequirementRegressionTests.test_csv_partial_row_must_not_silently_disappear)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 158, in test_csv_partial_row_must_not_silently_disappear
+    with self.assertRaises(ValueError):N['parse_csv_rows'](data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_histidine_tag_length_counts_both_codons (test_unified.RequirementRegressionTests.test_histidine_tag_length_counts_both_codons)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 163, in test_histidine_tag_length_counts_both_codons
+    self.assertEqual(sheet.cell(4,h['histaglength']).value,6);out.close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 6
+
+======================================================================
+FAIL: test_named_design_missing_sequence_is_not_silently_skipped (test_unified.RequirementRegressionTests.test_named_design_missing_sequence_is_not_silently_skipped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 167, in test_named_design_missing_sequence_is_not_silently_skipped
+    with self.assertRaises(ValueError):N['process_one'](pack(w),'input.xlsx')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_underscore_tube_filename_selects_tube (test_unified.RequirementRegressionTests.test_underscore_tube_filename_selects_tube)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 171, in test_underscore_tube_filename_selects_tube
+    self.assertEqual(meta['container'],'tube')
+AssertionError: 'plate' != 'tube'
+- plate
++ tube
+
+
+======================================================================
+FAIL: test_v3_custom_kozak_sequence_preserved (test_unified.RequirementRegressionTests.test_v3_custom_kozak_sequence_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 152, in test_v3_custom_kozak_sequence_preserved
+    out,_,_=N['convert_v3'](pack(w));r=workbook(out);self.assertEqual(r['Sequence']['I3'].value,'GCCACCATG');r.close()
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'GCCACCATG'
+
+======================================================================
+FAIL: test_v3_isotype_preserved (test_unified.RequirementRegressionTests.test_v3_isotype_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 148, in test_v3_isotype_preserved
+    def test_v3_isotype_preserved(self):self.assertEqual(self.w['Sequence']['D3'].value,'hIgG2')
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'hIgG1' != 'hIgG2'
+- hIgG1
+?     ^
++ hIgG2
+?     ^
+
+
+======================================================================
+FAIL: test_v3_keeps_template_instruction_row (test_unified.RequirementRegressionTests.test_v3_keeps_template_instruction_row)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 144, in test_v3_keeps_template_instruction_row
+    self.assertEqual(self.w['Sequence']['A1'].value,'V3.1')
+AssertionError: None != 'V3.1'
+
+======================================================================
+FAIL: test_v3_order_cell_line_from_source (test_unified.RequirementRegressionTests.test_v3_order_cell_line_from_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 146, in test_v3_order_cell_line_from_source
+    def test_v3_order_cell_line_from_source(self):self.assertEqual(self.w['Order Details']['B5'].value,'CHO')
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'HEK293' != 'CHO'
+- HEK293
++ CHO
+
+
+======================================================================
+FAIL: test_v3_order_scale_from_source (test_unified.RequirementRegressionTests.test_v3_order_scale_from_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 145, in test_v3_order_scale_from_source
+    def test_v3_order_scale_from_source(self):self.assertEqual(self.w['Order Details']['B3'].value,'HT IgG 1 mL Purified')
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'HT IgG 4 mL Purified' != 'HT IgG 1 mL Purified'
+- HT IgG 4 mL Purified
+?        ^
++ HT IgG 1 mL Purified
+?        ^
+
+
+======================================================================
+FAIL: test_v3_order_unoccupied_stays_blank (test_unified.RequirementRegressionTests.test_v3_order_unoccupied_stays_blank)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 147, in test_v3_order_unoccupied_stays_blank
+    def test_v3_order_unoccupied_stays_blank(self):self.assertIsNone(self.w['Order Details']['B4'].value)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Pooled' is not None
+
+======================================================================
+FAIL: test_v3_plate_well_preserved (test_unified.RequirementRegressionTests.test_v3_plate_well_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 149, in test_v3_plate_well_preserved
+    def test_v3_plate_well_preserved(self):self.assertEqual((self.w['Sequence']['A3'].value,self.w['Sequence']['B3'].value),('2','B1'))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (None, None) != ('2', 'B1')
+
+First differing element 0:
+None
+'2'
+
+- (None, None)
++ ('2', 'B1')
+
+======================================================================
+FAIL: test_v3_retains_template_tabs (test_unified.RequirementRegressionTests.test_v3_retains_template_tabs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 142, in test_v3_retains_template_tabs
+    self.assertEqual(self.w.sheetnames,['READ ME','Contact Information','Sequence','Order Details','Additional Service Requests','Sheet3'])
+AssertionError: Lists differ: ['Sequence', 'Order Details'] != ['READ ME', 'Contact Information', 'Sequenc[56 chars]et3']
+
+First differing element 0:
+'Sequence'
+'READ ME'
+
+Second list contains 4 additional elements.
+First extra element 2:
+'Sequence'
+
+- ['Sequence', 'Order Details']
++ ['READ ME',
++  'Contact Information',
++  'Sequence',
++  'Order Details',
++  'Additional Service Requests',
++  'Sheet3']
+
+----------------------------------------------------------------------
+Ran 51 tests in 3.895s
+
+FAILED (failures=14)

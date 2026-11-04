@@ -1,0 +1,78 @@
+<div id="__HOST_ID__" style="font-family:Arial,sans-serif;max-width:650px;color:#243342">
+  <h2 style="margin-bottom:6px">Antibody form converter</h2>
+  <p>Unified intake converter · Version 2.02</p>
+  <div class="dropzone" tabindex="0" role="button" aria-label="Choose or drop Excel or CSV files"
+       style="border:2px dashed #7594bc;border-radius:12px;padding:32px;text-align:center;background:#f5f8fc;cursor:pointer">
+    <strong>Drop Excel or CSV files here</strong>
+    <p style="margin:12px">or</p>
+    <button type="button" style="padding:10px 24px;border:0;border-radius:6px;background:#2563eb;color:white;cursor:pointer">Choose files</button>
+    <input type="file" accept=".xlsx,.csv" multiple hidden>
+    <p style="font-size:13px;margin-bottom:0">One or multiple files · Conversion starts automatically</p>
+  </div>
+  <div class="results" aria-live="polite"></div>
+</div>
+<script>
+(() => {
+ const host=document.getElementById('__HOST_ID__');
+ const zone=host.querySelector('.dropzone'), input=host.querySelector('input');
+ const results=host.querySelector('.results');
+ let busy=false;
+ const read=file=>new Promise((resolve,reject)=>{
+   const reader=new FileReader();
+   reader.onload=()=>resolve(reader.result.split(',')[1]);
+   reader.onerror=()=>reject(new Error('Could not read this file. Please try again.'));
+   reader.readAsDataURL(file);
+ });
+ async function processFiles(selected){
+   if(busy || !selected.length) return;
+   busy=true; zone.setAttribute('aria-disabled','true');
+   zone.querySelector('button').disabled=true; input.disabled=true;
+   results.replaceChildren();
+   try{
+     for(const file of Array.from(selected)){
+       const row=document.createElement('div'); row.style.margin='18px 0';
+       const title=document.createElement('strong'); title.textContent=file.name;
+       const status=document.createElement('p'); status.textContent='Converting…';
+       row.append(title,status); results.append(row);
+       try{
+         if(!/\.(xlsx|csv)$/i.test(file.name)) throw new Error('Please choose an .xlsx workbook or paired-chain .csv file.');
+         const payload=await read(file);
+         const response=await google.colab.kernel.invokeFunction('__CALLBACK__',[file.name,payload],{});
+         const result=response.data['application/json'];
+         if(result.error) throw new Error(result.error);
+         const bytes=Uint8Array.from(atob(result.data),c=>c.charCodeAt(0));
+         const url=URL.createObjectURL(new Blob([bytes],{type:'application/zip'}));
+         const link=document.createElement('a'); link.href=url; link.download=result.name;
+         link.textContent='Download ZIP'; link.style.cssText='display:inline-block;padding:10px 20px;background:#18794e;color:white;border-radius:6px;text-decoration:none';
+         status.textContent=result.message || 'Ready. ZIP includes the workbook and review report.';
+         row.append(link);
+         // Release retained download data when results are replaced by a later batch.
+         row.dataset.downloadUrl=url;
+       }catch(error){status.textContent='Could not convert: '+error.message;}
+     }
+   }finally{
+     busy=false; zone.setAttribute('aria-disabled','false');
+     zone.querySelector('button').disabled=false; input.disabled=false; input.value='';
+   }
+ }
+ zone.addEventListener('click',event=>{if(!busy && event.target!==input) input.click();});
+ zone.addEventListener('keydown',event=>{if(event.target===zone && (event.key==='Enter'||event.key===' ')){event.preventDefault();if(!busy)input.click();}});
+ input.addEventListener('change',()=>processFiles(input.files));
+ for(const name of ['dragenter','dragover','dragleave','drop']){
+   zone.addEventListener(name,event=>{
+     event.preventDefault();event.stopPropagation();
+     zone.style.borderColor=(name==='dragenter'||name==='dragover')?'#2563eb':'#7594bc';
+   });
+ }
+ zone.addEventListener('drop',event=>{if(!busy)processFiles(event.dataTransfer.files);});
+ // Keep accidental drops elsewhere in this output from navigating away.
+ host.addEventListener('dragover',event=>event.preventDefault());
+ host.addEventListener('drop',event=>event.preventDefault());
+ const observer=new MutationObserver(records=>{
+   for(const record of records)for(const node of record.removedNodes){
+     if(node.dataset && node.dataset.downloadUrl)URL.revokeObjectURL(node.dataset.downloadUrl);
+   }
+ });
+ observer.observe(results,{childList:true});
+})();
+</script>

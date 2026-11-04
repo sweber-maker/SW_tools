@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.02
+
+- Label EC outputs EC_upload and retain source filenames plus release version in every download.
+- Scan every v4.2 row and reject normal template conversion for any extra construct, including unnamed/incomplete rows and low-level conversion entry points.
+- Export a separate Name / Sequence / Vector Name DNA table with a per-construct assembly audit when all DNA checks succeed.
+- Avoid adding existing Kozak/leader prefixes; block protein, ambiguous DNA and uncertain partial/internal matches rather than guessing. Never export a partially failed construct set.
+- Distinguish the known empty template formula scaffold from populated or unresolved extra-construct fields.
+- Label rejection/failure clearly in Colab and continue other uploads after failures.
+
+
 ## 2.01
 
 - Replace the unified converter's old plain v3.1 workbook generator with a template-preserving engine isolated from EC globals.

@@ -30,8 +30,8 @@ The original uploaded notebook is retained under `converter/originals/`; the sup
 
 Version 1.03 upload controls were tested in Chromium with a mocked Colab kernel bridge: multi-file drag/drop, file picker, per-file error recovery and named ZIP download. Actual Colab browser integration still needs a user check. Optional browser check: `python converter/tests/check_upload_browser.py` requires Playwright and Chromium.
 
-## Unified converter v2.01 — v3.1 fixes
+## Unified converter v2.02
 
-The [unified converter](unified_converter/README.md) now includes a template-preserving v3.1 path. **All 20 v3.1 regression tests pass**, and all 258 example designs plus Order Details match the reference. The [full release report](unified_converter/Twist_Unified_Intake_Converter_v2.01_test_report.md) records 56/59 tests passing and three remaining CSV/EC defects.
+The [unified converter](unified_converter/README.md) retains the repaired v3.1 output and labels EC outputs **EC_upload**. Any third/fourth construct rejects normal conversion for the whole workbook and triggers a separate, audited DNA-only construct table when DNA checks pass. Existing Kozak/leader prefixes are checked before concatenation; uncertain or non-DNA constructs produce a failure report instead of a partial table.
 
-[Open unified version 2.01 in Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/unified_converter/Twist_Unified_Intake_Converter_v2.01.ipynb). The original v2.0 upload and prior standalone releases are retained.
+[Open unified version 2.02 in Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/unified_converter/Twist_Unified_Intake_Converter_v2.02.ipynb). Multiple-file picker and drag/drop are supported. See the [test report](unified_converter/Twist_Unified_Intake_Converter_v2.02_test_report.md) for validation and three remaining shared CSV/EC defects. Earlier versions are retained.

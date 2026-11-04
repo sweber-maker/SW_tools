@@ -1,66 +1,68 @@
-# Unified intake converter — version 2.01
+# Unified intake converter — version 2.02
 
-**Version 2.01 fixes the v3.1 regressions in the uploaded v2.0 notebook.** The original upload and its baseline test evidence remain unchanged.
+[Open 2.02 in Google Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/unified_converter/Twist_Unified_Intake_Converter_v2.02.ipynb)
 
-[Open 2.01 in Google Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/unified_converter/Twist_Unified_Intake_Converter_v2.01.ipynb)
+Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.02.zip`; every generated file inside retains that source name and release version. The notebook embeds all code and templates.
 
-Click ▶ once, then drop one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each file converts automatically and gets its own ZIP named `original upload_converted_v2.01.zip`. Workbooks, notes, and reports inside include the source filename and release version. The notebook embeds all templates and code; no separate uploads or repository checkout are needed in Colab.
+## Normal outputs
 
-## v3.1 fixes
+- v4.2 input → template-preserving **v3.1** and **EC_upload**.
+- Paired Sequence Download CSV / supported legacy XLSX → v4.2, v3.1 and EC_upload.
+- EC input → v4.2.
 
-- Use the supplied six-tab v3.1 template, preserving headers, instructions, styles, merged cells, drawings, formulas, print settings and supporting files. Only list-validation controls are removed.
-- Put sequence data on row 4, preserve plate/well positions and supported source isotypes, and retain custom Kozak/leader sequences verbatim.
-- Match occupied source Antibody Settings / Order Details selections to v3.1 options. Blank source fields stay blank; notes follow their labels even when source rows are reordered.
-- Copy source contact information, retaining separate shipping/billing sections.
-- Keep custom vector names when there is no normalized template match. Unrepresented isotypes become `Other, please specify below`, with the original in the warning report; they never become another IgG subclass through fuzzy matching.
-- Report the sample-confirmed mini-binder mapping and any inferred choices. Reject named designs lacking a first sequence and unsupported extra constructs.
+EC_upload means the EC workbook format. The tool selects the applicable one of the 12 EC template variants; it does not create 12 alternative orders for each input. All 12 variants are tested.
 
-The EC and v3.1 engine namespaces are isolated to prevent shared settings/functions from changing each other's conversions.
+The v3.1 fixes from 2.01 remain: six template tabs, instruction rows, styles and formulas; source-only Order Details; contacts; source isotypes and plate/well values; custom sequences retained. Dropdown controls are removed. Review scientific choices and warnings before ordering.
 
-## Validation
+## Any third or fourth construct: reject normal conversion
 
-**20/20 focused v3.1 tests passed. Full release: 59 tests, 56 passed, 3 failed, 0 errors, 0 skipped.**
+The scanner checks **every v4.2 row**, including rows lacking an antibody name or first sequence. Populated third/fourth construct fields reject both v3.1 and EC_upload for the **entire workbook**. Low-level standard conversion entry points also enforce the rule. Third/fourth construct placeholders alone do not count as populated constructs. A declared three/four-part transfection ratio also prevents normal conversion. A two-part ratio does not imply extra constructs and is reported as unrepresented in v3.1.
 
-The paired 258-design example has zero sequence-cell differences and zero Order Details input differences from the supplied reference, with matching template tabs and instruction rows. Source contacts intentionally follow the input, not the different contacts in the reference workbook. The template/package checks verify style and layout preservation structurally; no native Microsoft Excel visual check was performed.
+The bundled template's known blank AD formula is ignored when its source vector is blank. Cached formula DNA counts as occupied; an unknown unresolved formula is not assumed empty.
 
-The three remaining failures are in the unchanged shared CSV/EC logic:
+## Separate DNA-only fallback
 
-1. An incomplete CSV record can be silently skipped when other complete pairs exist. This can affect any downstream output from that CSV.
-2. Mixed CAC/CAT His-tag DNA is undercounted in EC output.
-3. A tube hint joined by an underscore in a filename is not recognized; use a separated word such as `input tube.xlsx` pending that fix.
+For a rejected v4.2 workbook, the ZIP contains a separate `*_DNA_constructs.xlsx` when DNA validation succeeds. It has exactly three columns:
 
-Review warnings and input completeness before ordering. A successful route or row count does not establish scientific correctness. The real example generated 261 v3.1 review items: 258 documented mini-binder mappings, two closest-option mappings, and one unmapped aSEC request. The aSEC request is reported rather than silently discarded. EC warnings are unchanged.
+**Name | Sequence | Vector Name**
 
-See the [release report](Twist_Unified_Intake_Converter_v2.01_test_report.md), [full results](Twist_Unified_Intake_Converter_v2.01_test_results.json), [focused results](Twist_Unified_Intake_Converter_v2.01_v3_test_results.json), and [example comparison](Twist_Unified_Intake_Converter_v2.01_example_results.json).
+It includes every populated construct block from every row, including one/two-construct rows in a mixed workbook. An audit JSON records source rows, construct indices, assembly actions, warnings and errors. Both normal outputs remain marked **REJECTED**; the fallback is never presented as a successful v3.1/EC_upload conversion.
 
-## Reproduce checks
+DNA assembly checks:
 
-From the repository root:
+- Use literal A/C/G/T DNA; normalize whitespace and case. Never reverse translate protein or resolve ambiguous bases by guessing.
+- If the full Kozak + leader prefix is already present, retain the insert unchanged (including a preceding cloning overhang).
+- If the insert already starts with the leader, add only the missing Kozak. If it starts with the Kozak, add only the missing leader.
+- If neither prefix is present, concatenate Kozak + leader + insert. Do not trim short coincidental base overlaps.
+- Do not duplicate a Kozak already included in the separately supplied leader field.
+- Block uncertain partial/internal/reversed matches for manual DNA review instead of editing a coding sequence by guesswork. An internal Kozak motif alone is not treated as a verified 5-prime signal.
+- Missing separate Kozak/leader data is reported as unverifiable; supplied DNA is retained without inventing missing components. Missing vector names remain blank with a warning; absent construct names are derived and reported. Duplicate names are retained and flagged, not silently deduplicated.
+
+If any construct cannot be validated/assembled, **no partial DNA table is exported**. The downloadable ZIP contains the failure report/audit instead. A transfection ratio declaring a different number of constructs also blocks the fallback. Alphabet validation does not establish reading frame, signal-peptide function or biological suitability; a protein composed only of A/C/G/T letters cannot be distinguished from DNA by alphabet alone.
+
+The UI explicitly labels normal-conversion rejection and failed DNA checks. One failed upload does not stop the other files in a batch.
+
+## Reproduce validation
 
 ```sh
 python -m pip install -r unified_converter/requirements.txt
-python unified_converter/run_v2_01_tests.py --v3-only
-python unified_converter/run_v2_01_tests.py
+python unified_converter/run_v2_02_tests.py
 ```
 
-The full run exits with status 1 while the three known failures remain. They are ordinary failing tests, not skipped or marked expected failures. The focused run exits successfully. Reports retain the tested notebook SHA-256 and dependency versions.
+The complete run retains three previously documented CSV/EC failures as ordinary failures, so it exits nonzero. They concern incomplete CSV records being skipped, mixed CAC/CAT His-tag length counting, and underscore-separated tube filename hints. Incomplete CSV records can affect downstream outputs; review input completeness before ordering. They are outside the new extra-construct/fallback changes.
+
+See [2.02 test report](Twist_Unified_Intake_Converter_v2.02_test_report.md), [machine-readable results](Twist_Unified_Intake_Converter_v2.02_test_results.json), [full log](Twist_Unified_Intake_Converter_v2.02_test_log.txt), and [258-design comparison](Twist_Unified_Intake_Converter_v2.02_example_results.json).
 
 ```sh
-python unified_converter/check_example.py 'input.xlsx' 'expected.xlsx' --notebook unified_converter/Twist_Unified_Intake_Converter_v2.01.ipynb
+python unified_converter/check_example.py 'input.xlsx' 'expected.xlsx' --notebook unified_converter/Twist_Unified_Intake_Converter_v2.02.ipynb
 ```
 
-The example comparison records differences and does not assert that they are zero. User source/example workbooks remain outside this repository.
+The comparison records observations; its exit status alone does not establish zero differences. User source/example workbooks stay outside the repository.
 
-Optional browser check (requires Playwright and Chromium):
+Optional browser check (Playwright + Chromium): `python unified_converter/tests_v2_02/check_upload_browser.py`. Local picker, drag/drop, per-file error handling and ZIP download checks mock the Colab kernel bridge; live Colab and native Microsoft Excel visual rendering still need a user-browser check.
 
-```sh
-python unified_converter/tests_v2_01/check_upload_browser.py
-```
+## Source and history
 
-Picker, multiple-file drop (including CSV), per-file error recovery and named ZIP downloads passed in local Chromium with a mocked Colab kernel bridge. Live Google Colab integration remains a user-browser check.
+Build the self-contained release with `python unified_converter/build_v2_02.py`. Sources: `constructs_v2_02.py`, `routing_v2_02.py`, `runtime_v2_02.py`, `v3_engine_v2_02.py`, `ui_v2_02/`. Increment the version for future releases.
 
-## Source and builds
-
-`v3_engine.py`, `routing_v2_01.py`, `runtime_v2_01.py`, and `ui/` are reviewable sources for the self-contained notebook. Rebuild with `python unified_converter/build_v2_01.py` and rerun checks after changes. Future releases must increment the version instead of overwriting a published notebook.
-
-The original v2.0 notebook is preserved byte for byte. Its original 51-test baseline (37 passed, 14 failed) remains available in `Twist_Unified_Intake_Converter_v2.0_*` reports. Run it with `python unified_converter/run_tests.py`. The earlier standalone v1.03 converter is also retained.
+The original v2.0 upload and its baseline reports, the v2.01 repair and reports, and earlier standalone releases remain available. Run `run_tests.py` for the original baseline or `run_v2_01_tests.py` for 2.01. Published notebooks are retained unchanged.

@@ -1,0 +1,439 @@
+{
+  "notebook": "Twist_Unified_Intake_Converter_v2.02.ipynb",
+  "sha256": "9b03c6a2d3334a1271a4ac97ce4d952192287b46e84a553a1d47a4c6639ba766",
+  "run_at_utc": "2026-11-04T17:58:33.373419+00:00",
+  "python": "3.12.14",
+  "openpyxl": "3.1.5",
+  "scope": "full-release",
+  "tests_run": 105,
+  "passed": 102,
+  "failed": 3,
+  "errors": 0,
+  "skipped": 0,
+  "outcomes": [
+    {
+      "test": "test_release.AssemblyTests.test_already_complete",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_ambiguous_nucleotides_fail",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_existing_multiple_prefixes_not_deleted",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_five_prime_overhang_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_formula_fails",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_internal_kozak_does_not_prevent_missing_five_prime_kozak",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_internal_kozak_is_not_used_to_edit_gene",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_kozak_already_in_insert",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_leader_already_in_insert",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_leader_field_already_has_kozak",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_leader_field_has_kozak_and_insert_has_kozak",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_lowercase_whitespace_normalized",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_missing_components_reported",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_missing_insert_fails",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_no_components_in_insert",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_one_base_overlap_is_not_trimmed",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_only_kozak_supplied",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_only_leader_supplied",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_partial_kozak_fails",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_partial_leader_fails",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_protein_insert_fails",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_protein_leader_fails",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_reversed_components_fail",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_rna_fails",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.AssemblyTests.test_single_component_internal_match_requires_review",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_audit_tracks_no_duplicate_prefix",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_cached_extra_dna_is_detected",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_duplicate_names_preserved_and_flagged",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_embedded_sources_match",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_export_does_not_execute_formula_like_names",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_extra_name_without_sequence_rejects",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_extra_row_without_antibody_or_first_sequence_rejects",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_fallback_reports_missing_components",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_four_construct_fallback",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_fourth_only_also_rejects",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_good_file_still_converts_after_bad_file",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_invalid_dna_no_partial_table",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_mixed_workbook_entirely_uses_fallback",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_normalized_three_chain_input_rejects",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_placeholder_extra_fields_do_not_trigger",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_ratio_declaring_missing_construct_fails_fallback",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_release_naming",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_three_construct_fallback",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_three_construct_standard_routes_all_reject",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_two_construct_ratio_is_not_misclassified",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ExtraConstructTests.test_unresolved_extra_formula_is_not_ignored",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.RemainingKnownTests.test_csv_partial_row_must_not_silently_disappear",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 158, in test_csv_partial_row_must_not_silently_disappear\n    with self.assertRaises(ValueError):N['parse_csv_rows'](data)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n"
+    },
+    {
+      "test": "previous_release_checks.RemainingKnownTests.test_histidine_tag_length_counts_both_codons",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 163, in test_histidine_tag_length_counts_both_codons\n    self.assertEqual(sheet.cell(4,h['histaglength']).value,6);out.close()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 3 != 6\n"
+    },
+    {
+      "test": "previous_release_checks.RemainingKnownTests.test_underscore_tube_filename_selects_tube",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 171, in test_underscore_tube_filename_selects_tube\n    self.assertEqual(meta['container'],'tube')\nAssertionError: 'plate' != 'tube'\n- plate\n+ tube\n\n"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_corrupt_workbook",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_csv_ambiguous_role",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_csv_duplicate_chain",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_csv_empty",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_csv_inconsistent_well",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_csv_missing_headers",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_csv_missing_partner",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_csv_pairs_by_role_not_row_order",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_dropdown_match_preserves_custom",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_embedded_archives",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_empty_designs",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_extra_construct_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_1chain_nickel_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_1chain_nickel_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_1chain_none_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_1chain_none_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_1chain_protein_a_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_1chain_protein_a_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_2chain_nickel_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_2chain_nickel_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_2chain_none_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_2chain_none_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_2chain_protein_a_plate",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_flavor_2chain_protein_a_tube",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_invalid_extension",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_mixed_chains_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_mixed_purification_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_more_than_96_rows",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_route_csv",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_route_ec",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_route_legacy",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_route_v42",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_unrecognized_workbook",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RouteAndECTests.test_validation_detects_wrong_count",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.UIStatusTests.test_failed_dna_is_not_labeled_ready",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.UIStatusTests.test_fallback_is_labeled_as_rejected_normal_conversion",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_all_purified_scales",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_cell_line_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_completion_cache_updates",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_contacts_come_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_csv_to_v3_has_blank_order_details_and_both_chains",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_custom_kozak_and_leader_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_custom_vectors_are_not_weak_fuzzy_matches",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_example_mini_binder_policy_is_reported",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_instruction_rows_and_first_design",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_isotype_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_named_design_without_sequence_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_no_settings_tab_means_no_defaults",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_placeholder_selection_stays_blank",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_plate_well_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_reordered_labels_notes_and_missing_choices",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_scale_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_styles_and_package_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_template_tabs",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_unknown_isotype_never_becomes_a_different_igg_subclass",
+      "status": "passed"
+    },
+    {
+      "test": "previous_release_checks.V3Tests.test_unoccupied_fields_stay_blank",
+      "status": "passed"
+    }
+  ],
+  "limits": "Synthetic workbook fixtures. Live Google Colab not exercised; separate browser test mocks only the Colab kernel bridge."
+}

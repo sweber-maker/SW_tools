@@ -1,3 +1,6 @@
 __pycache__/
 .pytest_cache/
 converted/
+
+unified_converter/private_fixtures/
+unified_converter/customer_outputs/

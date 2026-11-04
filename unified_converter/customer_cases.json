@@ -1,0 +1,114 @@
+{
+  "description": "Private customer regression fixtures; raw files are not stored in this repository. Restore exact uploads using the hashes below.",
+  "cases": [
+    {
+      "id": "customer_01",
+      "filename": "Antibodies custom form v4.2_Amazon_TRKA.xlsx",
+      "sha256": "afe072d26c01a664c0bf978b5c63c83514fbf0126da61995f44e45a0be1a53b9",
+      "format": "v42",
+      "designs": 92,
+      "extra_constructs": false,
+      "ec_workbooks": 1
+    },
+    {
+      "id": "customer_02",
+      "filename": "converted_VHH_V3.1_PTPRC.xlsx",
+      "sha256": "b0956b8f76105547f44b2bf3c3a7070c27042376b30a61e1b7c8bda27ca42c59",
+      "format": "v31",
+      "designs": 21,
+      "extra_constructs": false,
+      "ec_workbooks": 0
+    },
+    {
+      "id": "customer_03",
+      "filename": "Twist Antibodies custom form v4.2_Final (1).xlsx",
+      "sha256": "2fed88e5ee37a9f9b4da1aecff4aaef839137d77ef15d01313d8fa510d91dfad",
+      "format": "v42",
+      "designs": 8,
+      "extra_constructs": false,
+      "ec_workbooks": 1
+    },
+    {
+      "id": "customer_04",
+      "filename": "Antibodies custom form v4.2_Epana_APRIL-VHH_1of2.xlsx",
+      "sha256": "b364adc211915af44e8ff7df97995fa151a5e0c1d8561c77d633833c38d2aa12",
+      "format": "v42",
+      "designs": 12,
+      "extra_constructs": false,
+      "ec_workbooks": 1
+    },
+    {
+      "id": "customer_05",
+      "filename": "20260826_MDE125Round2_IgG_Dupilumab.xlsx",
+      "sha256": "9d5a3b7ef1c30b90da2b5c051d15378ab508292675cbbbb015ce383b5835e31e",
+      "format": "v31",
+      "designs": 224,
+      "extra_constructs": false,
+      "ec_workbooks": 0
+    },
+    {
+      "id": "customer_06",
+      "filename": "Xaira_260925_ox40_VHH.xlsx",
+      "sha256": "e47e7ae9c44c38b8784da152d8a13a65dc0d4c747104d3c05fde0cc0ac96d55d",
+      "format": "v42",
+      "designs": 93,
+      "extra_constructs": false,
+      "ec_workbooks": 1
+    },
+    {
+      "id": "customer_07",
+      "filename": "twist_order_260925_v42_il2 copy.xlsx",
+      "sha256": "c1644903c870e70dd043027861caa9d2b3c9131cbea649f53c8c4a3ad24c28a1",
+      "format": "v42",
+      "designs": 186,
+      "extra_constructs": false,
+      "ec_workbooks": 2
+    },
+    {
+      "id": "customer_08",
+      "filename": "twist_order_260925_v42_il2.xlsx",
+      "sha256": "c1644903c870e70dd043027861caa9d2b3c9131cbea649f53c8c4a3ad24c28a1",
+      "format": "v42",
+      "designs": 186,
+      "extra_constructs": false,
+      "ec_workbooks": 2,
+      "duplicate_of": "customer_07"
+    },
+    {
+      "id": "customer_09",
+      "filename": "20260826_MDE125Round2_IgG_Dupilumab_v4_2ml.xlsx",
+      "sha256": "69a3092bbc808d6f6d8bf5187e6095a28c2b0dd02227f5febd902e058d9407fc",
+      "format": "v42",
+      "designs": 225,
+      "extra_constructs": false,
+      "ec_workbooks": 1
+    },
+    {
+      "id": "customer_10",
+      "filename": "07_23_Twist_QC_VHVL_order_final.xlsx",
+      "sha256": "a5746fc45978b55014fcda73aafa91f46d40efea28361ed8d7f84e0d39da9e04",
+      "format": "v42",
+      "designs": 93,
+      "extra_constructs": false,
+      "ec_workbooks": 1
+    },
+    {
+      "id": "customer_11",
+      "filename": "260910_Abcustomv4.2_Seranova_SW (1).xlsx",
+      "sha256": "ee8deec9083fbdd747168912d0120b78b7ee5dc8af79bcb55692b7bdea08f5d5",
+      "format": "v42",
+      "designs": 4,
+      "extra_constructs": false,
+      "ec_workbooks": 1
+    },
+    {
+      "id": "customer_12",
+      "filename": "07_23_Twist_QC_VHH_order_SW.xlsx",
+      "sha256": "4650c7387ceec419b47fa486223abdaf0f3a823eb612f03fa77d2ca202a4952e",
+      "format": "v42",
+      "designs": 186,
+      "extra_constructs": false,
+      "ec_workbooks": 1
+    }
+  ]
+}

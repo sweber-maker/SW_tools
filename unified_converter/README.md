@@ -1,14 +1,27 @@
-# Unified intake converter — version 2.02
+# Unified intake converter — version 2.03
 
-[Open 2.02 in Google Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/unified_converter/Twist_Unified_Intake_Converter_v2.02.ipynb)
+[Open 2.03 in Google Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/unified_converter/Twist_Unified_Intake_Converter_v2.03.ipynb)
 
-Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.02.zip`; every generated file inside retains that source name and release version. The notebook embeds all code and templates.
+Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.03.zip`; every generated file inside retains that source name and release version. The notebook embeds all code and templates.
+
+## Real-file regression set
+
+[The 12-file customer case list](customer_cases.json) now covers 10 v4.2 forms and two existing v3.1 forms. **All 12 pass** the source-to-output validation checks; 1,330 supplied design rows are retained, including the duplicate IL2 upload. See the [customer results](Twist_Unified_Intake_Converter_v2.03_customer_test_results.json) and [release report](Twist_Unified_Intake_Converter_v2.03_test_report.md).
+
+The tool now maps no-physical-shipment and Yes/No sterile-filtration choices correctly, respects Micronic tube volume, repairs existing v3.1 inputs through template normalization, and splits mixed one/two-chain EC inputs by chain count. Existing v3.1 sources receive a normalized v3.1 output only.
+
+```sh
+python unified_converter/run_customer_tests.py --fixtures-dir /path/to/private/workbooks --output-dir /path/to/private/outputs
+```
+
+The raw customer files remain private external fixtures; only filenames, hashes and sanitized outcomes are stored in GitHub. Missing fixtures fail rather than being silently counted as passing.
 
 ## Normal outputs
 
 - v4.2 input → template-preserving **v3.1** and **EC_upload**.
 - Paired Sequence Download CSV / supported legacy XLSX → v4.2, v3.1 and EC_upload.
 - EC input → v4.2.
+- Existing v3.1 input → normalized v3.1 (including existing service selections/notes).
 
 EC_upload means the EC workbook format. The tool selects the applicable one of the 12 EC template variants; it does not create 12 alternative orders for each input. All 12 variants are tested.
 
@@ -46,23 +59,23 @@ The UI explicitly labels normal-conversion rejection and failed DNA checks. One 
 
 ```sh
 python -m pip install -r unified_converter/requirements.txt
-python unified_converter/run_v2_02_tests.py
+python unified_converter/run_v2_03_tests.py
 ```
 
 The complete run retains three previously documented CSV/EC failures as ordinary failures, so it exits nonzero. They concern incomplete CSV records being skipped, mixed CAC/CAT His-tag length counting, and underscore-separated tube filename hints. Incomplete CSV records can affect downstream outputs; review input completeness before ordering. They are outside the new extra-construct/fallback changes.
 
-See [2.02 test report](Twist_Unified_Intake_Converter_v2.02_test_report.md), [machine-readable results](Twist_Unified_Intake_Converter_v2.02_test_results.json), [full log](Twist_Unified_Intake_Converter_v2.02_test_log.txt), and [258-design comparison](Twist_Unified_Intake_Converter_v2.02_example_results.json).
+The synthetic suite has **113 tests: 110 passed and 3 known failures**. See [2.03 test report](Twist_Unified_Intake_Converter_v2.03_test_report.md), [machine-readable results](Twist_Unified_Intake_Converter_v2.03_test_results.json), [full log](Twist_Unified_Intake_Converter_v2.03_test_log.txt).
 
 ```sh
-python unified_converter/check_example.py 'input.xlsx' 'expected.xlsx' --notebook unified_converter/Twist_Unified_Intake_Converter_v2.02.ipynb
+python unified_converter/check_example.py 'input.xlsx' 'expected.xlsx' --notebook unified_converter/Twist_Unified_Intake_Converter_v2.03.ipynb
 ```
 
 The comparison records observations; its exit status alone does not establish zero differences. User source/example workbooks stay outside the repository.
 
-Optional browser check (Playwright + Chromium): `python unified_converter/tests_v2_02/check_upload_browser.py`. Local picker, drag/drop, per-file error handling and ZIP download checks mock the Colab kernel bridge; live Colab and native Microsoft Excel visual rendering still need a user-browser check.
+Optional browser check (Playwright + Chromium): `python unified_converter/tests_v2_03/check_upload_browser.py`. Local picker, drag/drop, per-file error handling and ZIP download checks mock the Colab kernel bridge; live Colab and native Microsoft Excel visual rendering still need a user-browser check.
 
 ## Source and history
 
-Build the self-contained release with `python unified_converter/build_v2_02.py`. Sources: `constructs_v2_02.py`, `routing_v2_02.py`, `runtime_v2_02.py`, `v3_engine_v2_02.py`, `ui_v2_02/`. Increment the version for future releases.
+Build the self-contained release with `python unified_converter/build_v2_03.py`. Sources: `constructs_v2_02.py`, `routing_v2_03.py`, `runtime_v2_03.py`, `v3_engine_v2_03.py`, `ui_v2_03/`. Increment the version for future releases.
 
-The original v2.0 upload and its baseline reports, the v2.01 repair and reports, and earlier standalone releases remain available. Run `run_tests.py` for the original baseline or `run_v2_01_tests.py` for 2.01. Published notebooks are retained unchanged.
+The original v2.0 upload and baseline, v2.01 repair, v2.02 fallback release, and earlier standalone releases remain available. Run `run_tests.py` for the original baseline or `run_v2_01_tests.py` for 2.01. Published notebooks are retained unchanged.

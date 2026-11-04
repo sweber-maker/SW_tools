@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.03
+
+- Add 12 private real-workbook regression cases by filename, hash and independent expected counts. All 12 pass.
+- Correct no-shipment cross-field mapping, affirmative/negative sterile-filtration mapping and Micronic container volume matching.
+- Normalize existing v3.1 files, repairing invalid input styles while preserving values, service selections and notes.
+- Split mixed one/two-chain EC inputs into separate EC_upload workbooks; retain a combined v3.1 output.
+- Record 113 synthetic checks (110 passed, three pre-existing CSV/EC failures) and private customer-suite validation.
+
+
 ## 2.02
 
 - Label EC outputs EC_upload and retain source filenames plus release version in every download.

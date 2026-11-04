@@ -1,0 +1,97 @@
+test_filename_and_report_versions (test_release.ReleaseTests.test_filename_and_report_versions) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/openpyxl/styles/stylesheet.py:237: UserWarning: Workbook contains no default style, apply openpyxl's default
+  warn("Workbook contains no default style, apply openpyxl's default")
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/openpyxl/worksheet/_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+ok
+test_notebook_embeds_reviewed_sources (test_release.ReleaseTests.test_notebook_embeds_reviewed_sources) ... ok
+test_csv_partial_row_must_not_silently_disappear (test_release.RemainingKnownTests.test_csv_partial_row_must_not_silently_disappear) ... FAIL
+test_histidine_tag_length_counts_both_codons (test_release.RemainingKnownTests.test_histidine_tag_length_counts_both_codons) ... FAIL
+test_underscore_tube_filename_selects_tube (test_release.RemainingKnownTests.test_underscore_tube_filename_selects_tube) ... FAIL
+test_corrupt_workbook (baseline_checks_for_release.UnifiedTests.test_corrupt_workbook) ... ok
+test_csv_ambiguous_role (baseline_checks_for_release.UnifiedTests.test_csv_ambiguous_role) ... ok
+test_csv_duplicate_chain (baseline_checks_for_release.UnifiedTests.test_csv_duplicate_chain) ... ok
+test_csv_empty (baseline_checks_for_release.UnifiedTests.test_csv_empty) ... ok
+test_csv_inconsistent_well (baseline_checks_for_release.UnifiedTests.test_csv_inconsistent_well) ... ok
+test_csv_missing_headers (baseline_checks_for_release.UnifiedTests.test_csv_missing_headers) ... ok
+test_csv_missing_partner (baseline_checks_for_release.UnifiedTests.test_csv_missing_partner) ... ok
+test_csv_pairs_by_role_not_row_order (baseline_checks_for_release.UnifiedTests.test_csv_pairs_by_role_not_row_order) ... ok
+test_dropdown_match_preserves_custom (baseline_checks_for_release.UnifiedTests.test_dropdown_match_preserves_custom) ... ok
+test_embedded_archives (baseline_checks_for_release.UnifiedTests.test_embedded_archives) ... ok
+test_empty_designs (baseline_checks_for_release.UnifiedTests.test_empty_designs) ... ok
+test_extra_construct_rejected (baseline_checks_for_release.UnifiedTests.test_extra_construct_rejected) ... ok
+test_flavor_1chain_nickel_plate (baseline_checks_for_release.UnifiedTests.test_flavor_1chain_nickel_plate) ... ok
+test_flavor_1chain_nickel_tube (baseline_checks_for_release.UnifiedTests.test_flavor_1chain_nickel_tube) ... ok
+test_flavor_1chain_none_plate (baseline_checks_for_release.UnifiedTests.test_flavor_1chain_none_plate) ... ok
+test_flavor_1chain_none_tube (baseline_checks_for_release.UnifiedTests.test_flavor_1chain_none_tube) ... ok
+test_flavor_1chain_protein_a_plate (baseline_checks_for_release.UnifiedTests.test_flavor_1chain_protein_a_plate) ... ok
+test_flavor_1chain_protein_a_tube (baseline_checks_for_release.UnifiedTests.test_flavor_1chain_protein_a_tube) ... ok
+test_flavor_2chain_nickel_plate (baseline_checks_for_release.UnifiedTests.test_flavor_2chain_nickel_plate) ... ok
+test_flavor_2chain_nickel_tube (baseline_checks_for_release.UnifiedTests.test_flavor_2chain_nickel_tube) ... ok
+test_flavor_2chain_none_plate (baseline_checks_for_release.UnifiedTests.test_flavor_2chain_none_plate) ... ok
+test_flavor_2chain_none_tube (baseline_checks_for_release.UnifiedTests.test_flavor_2chain_none_tube) ... ok
+test_flavor_2chain_protein_a_plate (baseline_checks_for_release.UnifiedTests.test_flavor_2chain_protein_a_plate) ... ok
+test_flavor_2chain_protein_a_tube (baseline_checks_for_release.UnifiedTests.test_flavor_2chain_protein_a_tube) ... ok
+test_invalid_extension (baseline_checks_for_release.UnifiedTests.test_invalid_extension) ... ok
+test_mixed_chains_rejected (baseline_checks_for_release.UnifiedTests.test_mixed_chains_rejected) ... ok
+test_mixed_purification_rejected (baseline_checks_for_release.UnifiedTests.test_mixed_purification_rejected) ... ok
+test_more_than_96_rows (baseline_checks_for_release.UnifiedTests.test_more_than_96_rows) ... ok
+test_route_csv (baseline_checks_for_release.UnifiedTests.test_route_csv) ... ok
+test_route_ec (baseline_checks_for_release.UnifiedTests.test_route_ec) ... ok
+test_route_legacy (baseline_checks_for_release.UnifiedTests.test_route_legacy) ... ok
+test_route_v42 (baseline_checks_for_release.UnifiedTests.test_route_v42) ... ok
+test_unrecognized_workbook (baseline_checks_for_release.UnifiedTests.test_unrecognized_workbook) ... ok
+test_validation_detects_wrong_count (baseline_checks_for_release.UnifiedTests.test_validation_detects_wrong_count) ... ok
+test_all_purified_scales (test_release.V3Tests.test_all_purified_scales) ... ok
+test_cell_line_from_source (test_release.V3Tests.test_cell_line_from_source) ... ok
+test_completion_cache_updates (test_release.V3Tests.test_completion_cache_updates) ... ok
+test_contacts_come_from_source (test_release.V3Tests.test_contacts_come_from_source) ... ok
+test_csv_to_v3_has_blank_order_details_and_both_chains (test_release.V3Tests.test_csv_to_v3_has_blank_order_details_and_both_chains) ... ok
+test_custom_kozak_and_leader_preserved (test_release.V3Tests.test_custom_kozak_and_leader_preserved) ... ok
+test_custom_vectors_are_not_weak_fuzzy_matches (test_release.V3Tests.test_custom_vectors_are_not_weak_fuzzy_matches) ... ok
+test_example_mini_binder_policy_is_reported (test_release.V3Tests.test_example_mini_binder_policy_is_reported) ... ok
+test_instruction_rows_and_first_design (test_release.V3Tests.test_instruction_rows_and_first_design) ... ok
+test_isotype_preserved (test_release.V3Tests.test_isotype_preserved) ... ok
+test_named_design_without_sequence_rejected (test_release.V3Tests.test_named_design_without_sequence_rejected) ... ok
+test_no_settings_tab_means_no_defaults (test_release.V3Tests.test_no_settings_tab_means_no_defaults) ... ok
+test_placeholder_selection_stays_blank (test_release.V3Tests.test_placeholder_selection_stays_blank) ... ok
+test_plate_well_preserved (test_release.V3Tests.test_plate_well_preserved) ... ok
+test_reordered_labels_notes_and_missing_choices (test_release.V3Tests.test_reordered_labels_notes_and_missing_choices) ... ok
+test_scale_from_source (test_release.V3Tests.test_scale_from_source) ... ok
+test_styles_and_package_preserved (test_release.V3Tests.test_styles_and_package_preserved) ... ok
+test_template_tabs (test_release.V3Tests.test_template_tabs) ... ok
+test_unknown_isotype_never_becomes_a_different_igg_subclass (test_release.V3Tests.test_unknown_isotype_never_becomes_a_different_igg_subclass) ... ok
+test_unoccupied_fields_stay_blank (test_release.V3Tests.test_unoccupied_fields_stay_blank) ... ok
+
+======================================================================
+FAIL: test_csv_partial_row_must_not_silently_disappear (test_release.RemainingKnownTests.test_csv_partial_row_must_not_silently_disappear)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 158, in test_csv_partial_row_must_not_silently_disappear
+    with self.assertRaises(ValueError):N['parse_csv_rows'](data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_histidine_tag_length_counts_both_codons (test_release.RemainingKnownTests.test_histidine_tag_length_counts_both_codons)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 163, in test_histidine_tag_length_counts_both_codons
+    self.assertEqual(sheet.cell(4,h['histaglength']).value,6);out.close()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 6
+
+======================================================================
+FAIL: test_underscore_tube_filename_selects_tube (test_release.RemainingKnownTests.test_underscore_tube_filename_selects_tube)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/SW_tools/unified_converter/tests/test_unified.py", line 171, in test_underscore_tube_filename_selects_tube
+    self.assertEqual(meta['container'],'tube')
+AssertionError: 'plate' != 'tube'
+- plate
++ tube
+
+
+----------------------------------------------------------------------
+Ran 59 tests in 49.822s
+
+FAILED (failures=3)

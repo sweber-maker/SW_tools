@@ -1,0 +1,21 @@
+{
+  "input_kind": "v42",
+  "outputs": [
+    {
+      "format": "EC",
+      "rows": 258,
+      "warnings": 310
+    },
+    {
+      "format": "v3.1",
+      "rows": 258,
+      "warnings": 261
+    }
+  ],
+  "v3_designs_matched_by_name": 258,
+  "v3_sequence_cell_differences": 0,
+  "v3_order_input_cell_differences": 0,
+  "v3_template_tabs_match": true,
+  "v3_instruction_row_preserved": true,
+  "elapsed_seconds": 4.34
+}

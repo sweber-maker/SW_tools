@@ -1,0 +1,255 @@
+{
+  "notebook": "Twist_Unified_Intake_Converter_v2.01.ipynb",
+  "sha256": "8e473ea01632146619f7ed8bc69cc768078b1a712a68c6c4056f63add5ec85a4",
+  "run_at_utc": "2026-11-04T17:16:58.934259+00:00",
+  "python": "3.12.14",
+  "openpyxl": "3.1.5",
+  "scope": "full-release",
+  "tests_run": 59,
+  "passed": 56,
+  "failed": 3,
+  "errors": 0,
+  "skipped": 0,
+  "outcomes": [
+    {
+      "test": "test_release.ReleaseTests.test_filename_and_report_versions",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.ReleaseTests.test_notebook_embeds_reviewed_sources",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.RemainingKnownTests.test_csv_partial_row_must_not_silently_disappear",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 158, in test_csv_partial_row_must_not_silently_disappear\n    with self.assertRaises(ValueError):N['parse_csv_rows'](data)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n"
+    },
+    {
+      "test": "test_release.RemainingKnownTests.test_histidine_tag_length_counts_both_codons",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 163, in test_histidine_tag_length_counts_both_codons\n    self.assertEqual(sheet.cell(4,h['histaglength']).value,6);out.close()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 3 != 6\n"
+    },
+    {
+      "test": "test_release.RemainingKnownTests.test_underscore_tube_filename_selects_tube",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/SW_tools/unified_converter/tests/test_unified.py\", line 171, in test_underscore_tube_filename_selects_tube\n    self.assertEqual(meta['container'],'tube')\nAssertionError: 'plate' != 'tube'\n- plate\n+ tube\n\n"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_corrupt_workbook",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_csv_ambiguous_role",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_csv_duplicate_chain",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_csv_empty",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_csv_inconsistent_well",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_csv_missing_headers",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_csv_missing_partner",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_csv_pairs_by_role_not_row_order",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_dropdown_match_preserves_custom",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_embedded_archives",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_empty_designs",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_extra_construct_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_1chain_nickel_plate",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_1chain_nickel_tube",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_1chain_none_plate",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_1chain_none_tube",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_1chain_protein_a_plate",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_1chain_protein_a_tube",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_2chain_nickel_plate",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_2chain_nickel_tube",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_2chain_none_plate",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_2chain_none_tube",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_2chain_protein_a_plate",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_flavor_2chain_protein_a_tube",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_invalid_extension",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_mixed_chains_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_mixed_purification_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_more_than_96_rows",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_route_csv",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_route_ec",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_route_legacy",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_route_v42",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_unrecognized_workbook",
+      "status": "passed"
+    },
+    {
+      "test": "baseline_checks_for_release.UnifiedTests.test_validation_detects_wrong_count",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_all_purified_scales",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_cell_line_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_completion_cache_updates",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_contacts_come_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_csv_to_v3_has_blank_order_details_and_both_chains",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_custom_kozak_and_leader_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_custom_vectors_are_not_weak_fuzzy_matches",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_example_mini_binder_policy_is_reported",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_instruction_rows_and_first_design",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_isotype_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_named_design_without_sequence_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_no_settings_tab_means_no_defaults",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_placeholder_selection_stays_blank",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_plate_well_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_reordered_labels_notes_and_missing_choices",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_scale_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_styles_and_package_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_template_tabs",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_unknown_isotype_never_becomes_a_different_igg_subclass",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_unoccupied_fields_stay_blank",
+      "status": "passed"
+    }
+  ],
+  "limits": "Synthetic workbook fixtures. Live Google Colab not exercised; separate browser test mocks only the Colab kernel bridge."
+}

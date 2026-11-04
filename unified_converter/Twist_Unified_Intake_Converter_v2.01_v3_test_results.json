@@ -1,0 +1,96 @@
+{
+  "notebook": "Twist_Unified_Intake_Converter_v2.01.ipynb",
+  "sha256": "8e473ea01632146619f7ed8bc69cc768078b1a712a68c6c4056f63add5ec85a4",
+  "run_at_utc": "2026-11-04T17:18:44.816599+00:00",
+  "python": "3.12.14",
+  "openpyxl": "3.1.5",
+  "scope": "v3-only",
+  "tests_run": 20,
+  "passed": 20,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "outcomes": [
+    {
+      "test": "test_release.V3Tests.test_all_purified_scales",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_cell_line_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_completion_cache_updates",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_contacts_come_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_csv_to_v3_has_blank_order_details_and_both_chains",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_custom_kozak_and_leader_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_custom_vectors_are_not_weak_fuzzy_matches",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_example_mini_binder_policy_is_reported",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_instruction_rows_and_first_design",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_isotype_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_named_design_without_sequence_rejected",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_no_settings_tab_means_no_defaults",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_placeholder_selection_stays_blank",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_plate_well_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_reordered_labels_notes_and_missing_choices",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_scale_from_source",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_styles_and_package_preserved",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_template_tabs",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_unknown_isotype_never_becomes_a_different_igg_subclass",
+      "status": "passed"
+    },
+    {
+      "test": "test_release.V3Tests.test_unoccupied_fields_stay_blank",
+      "status": "passed"
+    }
+  ],
+  "limits": "Synthetic workbook fixtures. Live Google Colab not exercised; separate browser test mocks only the Colab kernel bridge."
+}

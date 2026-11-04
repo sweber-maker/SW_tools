@@ -1,0 +1,29 @@
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/openpyxl/worksheet/_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+test_all_purified_scales (test_release.V3Tests.test_all_purified_scales) ... ok
+test_cell_line_from_source (test_release.V3Tests.test_cell_line_from_source) ... ok
+test_completion_cache_updates (test_release.V3Tests.test_completion_cache_updates) ... ok
+test_contacts_come_from_source (test_release.V3Tests.test_contacts_come_from_source) ... ok
+test_csv_to_v3_has_blank_order_details_and_both_chains (test_release.V3Tests.test_csv_to_v3_has_blank_order_details_and_both_chains) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/openpyxl/styles/stylesheet.py:237: UserWarning: Workbook contains no default style, apply openpyxl's default
+  warn("Workbook contains no default style, apply openpyxl's default")
+ok
+test_custom_kozak_and_leader_preserved (test_release.V3Tests.test_custom_kozak_and_leader_preserved) ... ok
+test_custom_vectors_are_not_weak_fuzzy_matches (test_release.V3Tests.test_custom_vectors_are_not_weak_fuzzy_matches) ... ok
+test_example_mini_binder_policy_is_reported (test_release.V3Tests.test_example_mini_binder_policy_is_reported) ... ok
+test_instruction_rows_and_first_design (test_release.V3Tests.test_instruction_rows_and_first_design) ... ok
+test_isotype_preserved (test_release.V3Tests.test_isotype_preserved) ... ok
+test_named_design_without_sequence_rejected (test_release.V3Tests.test_named_design_without_sequence_rejected) ... ok
+test_no_settings_tab_means_no_defaults (test_release.V3Tests.test_no_settings_tab_means_no_defaults) ... ok
+test_placeholder_selection_stays_blank (test_release.V3Tests.test_placeholder_selection_stays_blank) ... ok
+test_plate_well_preserved (test_release.V3Tests.test_plate_well_preserved) ... ok
+test_reordered_labels_notes_and_missing_choices (test_release.V3Tests.test_reordered_labels_notes_and_missing_choices) ... ok
+test_scale_from_source (test_release.V3Tests.test_scale_from_source) ... ok
+test_styles_and_package_preserved (test_release.V3Tests.test_styles_and_package_preserved) ... ok
+test_template_tabs (test_release.V3Tests.test_template_tabs) ... ok
+test_unknown_isotype_never_becomes_a_different_igg_subclass (test_release.V3Tests.test_unknown_isotype_never_becomes_a_different_igg_subclass) ... ok
+test_unoccupied_fields_stay_blank (test_release.V3Tests.test_unoccupied_fields_stay_blank) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 36.998s
+
+OK

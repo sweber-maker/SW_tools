@@ -2,7 +2,7 @@
 
 [**Open the converter in Google Colab**](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/START_HERE.ipynb)
 
-**Current version: 2.04.** The notebook to use is [START_HERE.ipynb](START_HERE.ipynb), right here at the top of the repository.
+**Current version: 2.05.** The notebook to use is [START_HERE.ipynb](START_HERE.ipynb), right here at the top of the repository.
 
 1. Open the Colab link and click **▶ Start converter** once.
 2. Drag one or multiple Excel/CSV files into the upload area, or click **Choose files**.

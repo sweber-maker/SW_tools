@@ -1,0 +1,33 @@
+{
+  "version": "2.05",
+  "notebook_bytes": 3542,
+  "notebook_sha256": "ba70dcbc76b748e985a0121ae39e15dd1a015708c936d77b854b6e44df5ba6a3",
+  "bundle": {
+    "version": "2.05",
+    "bundle_filename": "unified_v2.05.zip",
+    "bundle_sha256": "8885b3a88e525ec9abfacc20a931b785223af2c2435c3dcc5c32da71c143d443",
+    "bundle_url": "https://raw.githubusercontent.com/sweber-maker/SW_tools/unified-v2.05/unified_converter/releases/unified_v2.05.zip"
+  },
+  "focused_signal_tests": {
+    "run": 18,
+    "passed": 18,
+    "ec_template_variants": 12
+  },
+  "launcher_tests": {
+    "run": 10,
+    "passed": 10
+  },
+  "private_customer_cases": {
+    "run": 14,
+    "passed": 14
+  },
+  "SK_example": {
+    "designs": 64,
+    "VH_leaders_match_source_DNA_definition": 64,
+    "literal_VL_leaders_preserved": 64,
+    "primary_AA_chain_sequences_preserved": 128,
+    "leader_DNA_length": 51
+  },
+  "summit_reference_inserts_matching": 33,
+  "limits": "Real fixture checks use the local verified runtime package. Launcher tests mock the HTTP/pip/Colab bridge. Native Excel/live user Colab not checked. Three previous CSV/EC limitations remain."
+}

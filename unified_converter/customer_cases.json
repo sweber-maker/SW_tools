@@ -131,6 +131,21 @@
       "constructs": 33,
       "prefix_already_present": true,
       "ec_workbooks": 0
+    },
+    {
+      "id": "customer_14",
+      "filename": "20261104_Antibodies custom form v4.2_SK.xlsx",
+      "sha256": "47ef56a03be422fc3e8046004676e8dfbefebc563dfe7dfaa9ecc921b6a9f45d",
+      "format": "v42",
+      "designs": 64,
+      "extra_constructs": false,
+      "ec_workbooks": 1,
+      "signal_checks": {
+        "VH_leader": "source_twist_default",
+        "VL_leader": "preserve_literal_dna",
+        "default_source": "Dropdown Lists!B18",
+        "expected_length": 51
+      }
     }
   ]
 }

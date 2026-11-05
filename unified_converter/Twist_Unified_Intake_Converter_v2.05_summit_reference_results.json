@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "reference_rows": 33,
+  "fallback_constructs": 33,
+  "checks": {
+    "same_name_set": true,
+    "insert_dna_matches": 33,
+    "vector_site_matches": 33,
+    "unambiguous_dna": 33,
+    "insert_length_matches": 33,
+    "construct_length_matches": 33,
+    "insert_occurs_once": 33
+  },
+  "differences": [],
+  "vector_bases_replaced_histogram": {
+    "58": 33
+  },
+  "limits": "DNA identity and supplied metadata checks only; this does not establish biological function or verify an independent vector reference.",
+  "source_sha256": "2a2a8ad5b16964e43f362c3747b90be97a8eaec079806c8153ee82457dfa4e06",
+  "reference_sha256": "f2d3eff6433ffcae93cc1b350746b496cf9c7b60bc5f7a401b4acc522dc633e0",
+  "notebook_sha256": "ba70dcbc76b748e985a0121ae39e15dd1a015708c936d77b854b6e44df5ba6a3",
+  "version": "2.05"
+}

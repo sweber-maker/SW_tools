@@ -14,6 +14,14 @@ def sequence(value):return re.sub(r'\s+','',canonical(value)).upper()
 def require(condition,description):
     if not condition:raise AssertionError(description)
 
+def signal_instruction(value):
+    return bool(re.search(r'please select|replace.{0,80}dropdown|enter.{0,50}sequence|fully contained|partially contained|twist sequence|(?:twist|custom) vector',str(value or ''),re.I))
+
+def check_signal(original,converted):
+    if signal_instruction(original) or not occupied(original):
+        require(not occupied(converted) or bool(re.fullmatch('[ACGT]+',sequence(converted))),'Instruction/blank signal fields become verified DNA or remain unset, never menu text')
+    else:require(sequence(original)==sequence(converted),'Literal custom signal sequence preserved')
+
 def target_order_row(label):
     label=norm(label)
     for prefix,row in [('scale',3),('pooling',4),('cellline',5),('purificationmethod',6),('elutionbuffer',7),('bufferexchange',8),('normalization',9),('postpurificationsterilefiltration',10),('aliquot',11),('shippingcontainer',12),('customplatemap',13),('restrictionenzymesites',14),('pleaseindicateifyouprefernot',15),('shipphysicalsampleswithadditional',16),('additionalrequests',17)]:
@@ -32,14 +40,15 @@ def validate_source_and_output(source,content,case):
         other_pairs=[(ord(a)-65,ord(b)-65) for a,b in [('A','A'),('B','B'),('L','I'),('N','K'),('S','P'),('U','R')]]
         for original,converted in zip(raw,rows):
             for a,b in other_pairs:
-                if occupied(original[a]):require(sequence(original[a])==sequence(converted[b]),'Plate/well or custom Kozak/leader preservation')
-                else:require(not occupied(converted[b]),'Unset source coordinate/sequence placeholders remain unset')
+                if a in (0,1):require(canonical(original[a])==canonical(converted[b]),'Source plate/well preserved')
+                else:check_signal(original[a],converted[b])
     else:
         raw=[row for row in source['Sequence'].iter_rows(min_row=4,max_col=19,values_only=True) if occupied(row[2])]
         actual=[(canonical(r[2]),canonical(r[5]),sequence(r[11]),canonical(r[12]),sequence(r[18])) for r in rows]
         wanted=[(canonical(r[2]),canonical(r[5]),sequence(r[11]),canonical(r[12]),sequence(r[18])) for r in raw]
         for original,converted in zip(raw,rows):
-            for col in (0,1,8,10,15,17):require(sequence(original[col])==sequence(converted[col]),'Existing v3.1 coordinates or custom sequences preserved')
+            for col in (0,1):require(canonical(original[col])==canonical(converted[col]),'Existing v3.1 coordinates preserved')
+            for col in (8,10,15,17):check_signal(original[col],converted[col])
         if 'Additional Service Requests' in source.sheetnames:
             for row in source['Additional Service Requests'].iter_rows(min_row=3,max_col=3):
                 for cell in row[1:]:
@@ -65,6 +74,9 @@ def validate_source_and_output(source,content,case):
             if target==3:
                 amount=re.search(r'(\d+(?:\.\d+)?)\s*ml',str(value),re.I)
                 if amount:require(norm(amount.group(1)+'ml') in norm(actual_value),'Scale amount preserved')
+            elif target==9 and re.search(r'(\d+(?:\.\d+)?)\s*mg\s*/\s*ml',str(value),re.I):
+                src=re.search(r'(\d+(?:\.\d+)?)\s*mg\s*/\s*ml',str(value),re.I);dst=re.search(r'(\d+(?:\.\d+)?)\s*mg\s*/\s*ml',str(actual_value),re.I)
+                require(dst is not None and float(src.group(1))==float(dst.group(1)),'Normalization concentration preserved')
             elif target==10:
                 require((norm(value) in ('yes','true') and norm(actual_value)=='postpurificationsterilefiltration') or norm(value)==norm(actual_value),'Affirmative sterile filtration mapped correctly')
             elif target==12 and 'micronic' in str(value).lower():
@@ -77,6 +89,11 @@ def validate_source_and_output(source,content,case):
             require(str(note)==str(output['Order Details'].cell(target,3).value),'Order note preserved at corresponding field');notes_count+=1
     for r in range(3,18):
         if r not in expected_occupied:require(not occupied(output['Order Details'].cell(r,2).value),'Blank source order fields stay blank')
+    if case.get('signal_checks'):
+        default=source['Dropdown Lists']['B18'].value
+        require(len(sequence(default))==case['signal_checks']['expected_length'],'Registered source leader DNA length')
+        require(all(sequence(row[10])==sequence(default) for row in rows),'All VH leaders resolved to source-defined Twist DNA')
+        require(all(sequence(row[17])==sequence(raw[index][20]) for index,row in enumerate(rows)),'Literal VL leader DNA unchanged')
     missing=sum(not occupied(output['Order Details'].cell(r,2).value) for r in (3,5,6,7))
     if not occupied(output['Order Details']['B12'].value) and not occupied(output['Order Details']['B15'].value):missing+=1
     output.close()
@@ -118,7 +135,7 @@ def validate_fallback(source,bundle,case,engine,blob,inspection):
     return {'designs':designs,'dna_constructs_verified':len(actual),'prefixes_already_present':prefixes,'dna_sequences_changed':0,'normal_v3_and_ec_rejected':True}
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();group=p.add_mutually_exclusive_group(required=True);group.add_argument('--manifest',type=Path);group.add_argument('--fixtures-dir',type=Path);p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--notebook',type=Path,default=ROOT/'Twist_Unified_Intake_Converter_v2.04.ipynb');args=p.parse_args()
+    p=argparse.ArgumentParser();group=p.add_mutually_exclusive_group(required=True);group.add_argument('--manifest',type=Path);group.add_argument('--fixtures-dir',type=Path);p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--notebook',type=Path,default=ROOT/'Twist_Unified_Intake_Converter_v2.05.ipynb');args=p.parse_args()
     catalogue=json.loads((ROOT/'customer_cases.json').read_text())['cases']
     if args.manifest:
         locations={r['id']:Path(r['path']) for r in json.loads(args.manifest.read_text())}
@@ -157,7 +174,14 @@ if __name__=='__main__':
                         for name in ec:
                             wb=openpyxl.load_workbook(io.BytesIO(bundle.read(name)),data_only=True);s=wb['Data entry'];h={norm(c.value):c.column for c in s[3] if c.value}
                             for row in s.iter_rows(min_row=4,values_only=True):
-                                if occupied(row[h['iggname']-1]):observed[(canonical(row[h['iggname']-1]),sequence(row[h['vhvdjsequencednaoraa']-1]),sequence(row[h['vlsequencednaoraa']-1]) if 'vlsequencednaoraa' in h else '')]+=1
+                                if occupied(row[h['iggname']-1]):
+                                    for key,column in h.items():
+                                        if key in ('vhleadersequencedna','vlleadersequencedna','vhkozaksequencedna','vlkozaksequencedna'):
+                                            value=row[column-1]
+                                            require(not occupied(value) or bool(re.fullmatch('[ACGT]+',sequence(value))),'EC signal columns contain literal DNA or are unset, never instructions/protein')
+                                    if case.get('signal_checks'):
+                                        require(sequence(row[h['vhleadersequencedna']-1])==sequence(source['Dropdown Lists']['B18'].value),'EC VH leader matches selected source Twist definition')
+                                    observed[(canonical(row[h['iggname']-1]),sequence(row[h['vhvdjsequencednaoraa']-1]),sequence(row[h['vlsequencednaoraa']-1]) if 'vlsequencednaoraa' in h else '')]+=1
                             wb.close()
                         if ec:require(observed==expected,'EC partition union retains each source design and both sequences exactly once')
                     results.append({'id':case['id'],'filename':case['filename'],'format':case['format'],'status':'passed','checks':checks,'ec_workbooks':len(ec),'extra_construct_rows':len(inspection['extra_rows']),'archive':path.name})

@@ -1,14 +1,22 @@
-# Unified intake converter — version 2.04
+# Unified intake converter — version 2.05
 
 [Open START_HERE in Google Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/START_HERE.ipynb)
 
-Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.04.zip`; every generated file inside retains that source name and release version. The new 3.5 KB launcher loads a checksum-verified runtime package after ▶, avoiding the huge embedded code line in older notebooks. See [the 2.04 launcher notes](LAUNCHER_V2_04.md). Conversion rules match 2.03; output filenames now identify 2.04.
+Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.05.zip`; every generated file inside retains that source name and release version. The new 3.5 KB launcher loads a checksum-verified runtime package after ▶, avoiding the huge embedded code line in older notebooks. See [the 2.04 launcher notes](LAUNCHER_V2_04.md). The 2.05 signal-field corrections are described below; output filenames identify version 2.05.
+
+## Leader DNA fix in 2.05
+
+Instruction strings are no longer accepted as EC leader/Kozak DNA. The converter uses a unique source-defined Twist DNA choice when explicitly selected, or an exact known DNA prefix; unresolved instructions become blank with review messages. Literal custom DNA is never fuzzy-corrected to another sequence. Both primary DNA/AA inserts remain unchanged. The SK example now has 64/64 corrected VH leaders and 64/64 preserved VL leaders. See [the 2.05 fix and evidence](LEADER_DNA_V2_05.md).
+
+All 18 signal tests, 10 launcher checks and 14 real-file cases pass, including all 12 EC template variants and the Summit final reference. See [release validation](releases/unified_v2.05_validation.json) and [customer results](Twist_Unified_Intake_Converter_v2.05_customer_test_results.json).
 
 ## Real-file regression set
 
-[The 13-file customer case list](customer_cases.json) now covers 11 v4.2 forms and two existing v3.1 forms. **All 13 pass** their expected conversion/rejection checks. The initial 12 files retain 1,330 normal design rows, including the duplicate IL2 upload. The Summit file has nine three-construct and three two-construct rows: both normal formats are rejected and a separate 33-construct DNA list is verified, with every supplied Kozak/leader prefix already present. See the [customer results](Twist_Unified_Intake_Converter_v2.03_customer_test_results.json) and [release report](Twist_Unified_Intake_Converter_v2.03_test_report.md).
+[The 14-file customer case list](customer_cases.json) now covers 12 v4.2 forms and two existing v3.1 forms. **All 14 pass** their expected conversion/rejection checks. The initial 12 files retain 1,330 normal design rows, including the duplicate IL2 upload. The Summit file has nine three-construct and three two-construct rows: both normal formats are rejected and a separate 33-construct DNA list is verified, with every supplied Kozak/leader prefix already present. See the [customer results](Twist_Unified_Intake_Converter_v2.03_customer_test_results.json) and [release report](Twist_Unified_Intake_Converter_v2.03_test_report.md).
 
-The tool now maps no-physical-shipment and Yes/No sterile-filtration choices correctly, respects Micronic tube volume, repairs existing v3.1 inputs through template normalization, and splits mixed one/two-chain EC inputs by chain count. Existing v3.1 sources receive a normalized v3.1 output only.
+The SK case adds 64 paired designs with amino-acid inserts and a source-defined 51-base Twist leader.
+
+The tool also maps no-physical-shipment and Yes/No sterile-filtration choices correctly, respects Micronic tube volume, repairs existing v3.1 inputs through template normalization, and splits mixed one/two-chain EC inputs by chain count. Existing v3.1 sources receive a normalized v3.1 output only.
 
 ```sh
 python unified_converter/run_customer_tests.py --fixtures-dir /path/to/private/workbooks --output-dir /path/to/private/outputs
@@ -76,11 +84,11 @@ Optional browser check (Playwright + Chromium): `python unified_converter/tests_
 
 ## Launcher validation
 
-All 10 launcher tests and 13 private real-file cases pass against version 2.04. See [validation details](LAUNCHER_V2_04.md). The historical 2.03 synthetic report below remains relevant to the unchanged conversion logic and its three known limitations.
+All 18 signal tests, 10 launcher checks and 14 private real-file cases pass against 2.05. See [validation details](LEADER_DNA_V2_05.md). The historical 2.03 report records the earlier baseline and three remaining CSV/EC limitations; current signal fixes have separate 2.05 coverage.
 
 ## Source and history
 
-Build the current launcher with `python unified_converter/build_launcher_v2_04.py`. The self-contained 2.03 archive can still be rebuilt with `python unified_converter/build_v2_03.py`. Sources: `constructs_v2_02.py`, `routing_v2_03.py`, `runtime_v2_03.py`, `v3_engine_v2_03.py`, `ui_v2_03/`. Increment the version for future releases.
+Build the current launcher with `python unified_converter/build_launcher_v2_05.py`. The 2.05 runtime includes `signals_v2_05.py`, `ec_engine_v2_05.py`, `v3_engine_v2_05.py` and `runtime_v2_05.py`; routing/extra-construct rules remain frozen apart from version identifiers. The self-contained 2.03 archive can still be rebuilt with `python unified_converter/build_v2_03.py`. Sources: `constructs_v2_02.py`, `routing_v2_03.py`, `runtime_v2_03.py`, `v3_engine_v2_03.py`, `ui_v2_03/`. Increment the version for future releases.
 
 The original v2.0 upload and baseline, v2.01 repair, v2.02 fallback release, and earlier standalone releases remain available. Run `run_tests.py` for the original baseline or `run_v2_01_tests.py` for 2.01. Published notebooks are retained unchanged.
 

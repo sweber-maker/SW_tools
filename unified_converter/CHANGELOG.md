@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.05
+
+- Resolve source Twist leader/Kozak instruction fields from explicit source DNA definitions or exact known insert-prefix evidence.
+- Keep literal custom DNA out of fuzzy dropdown matching; unresolved/non-DNA EC signal values are blank with review messages. Never reverse translate AA inputs.
+- Correct the SK example (64 VH leaders) while preserving VL DNA and primary AA sequences; add it as private regression case 14.
+- Map the same fixture's 0.5 mg/mL normalization shorthand by concentration.
+- Preserve the lightweight START_HERE launcher, source-based versioned outputs and strict extra-construct rejection/fallback.
+
+
 ## 2.04
 
 - Replace the oversized single-code-line notebook with a 3.5 KB root START_HERE launcher and identical versioned notebook.

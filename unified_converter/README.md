@@ -1,8 +1,8 @@
-# Unified intake converter — version 2.03
+# Unified intake converter — version 2.04
 
-[Open 2.03 in Google Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/unified_converter/Twist_Unified_Intake_Converter_v2.03.ipynb)
+[Open START_HERE in Google Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/START_HERE.ipynb)
 
-Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.03.zip`; every generated file inside retains that source name and release version. The notebook embeds all code and templates.
+Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.04.zip`; every generated file inside retains that source name and release version. The new 3.5 KB launcher loads a checksum-verified runtime package after ▶, avoiding the huge embedded code line in older notebooks. See [the 2.04 launcher notes](LAUNCHER_V2_04.md). Conversion rules match 2.03; output filenames now identify 2.04.
 
 ## Real-file regression set
 
@@ -74,9 +74,13 @@ The comparison records observations; its exit status alone does not establish ze
 
 Optional browser check (Playwright + Chromium): `python unified_converter/tests_v2_03/check_upload_browser.py`. Local picker, drag/drop, per-file error handling and ZIP download checks mock the Colab kernel bridge; live Colab and native Microsoft Excel visual rendering still need a user-browser check.
 
+## Launcher validation
+
+All 10 launcher tests and 13 private real-file cases pass against version 2.04. See [validation details](LAUNCHER_V2_04.md). The historical 2.03 synthetic report below remains relevant to the unchanged conversion logic and its three known limitations.
+
 ## Source and history
 
-Build the self-contained release with `python unified_converter/build_v2_03.py`. Sources: `constructs_v2_02.py`, `routing_v2_03.py`, `runtime_v2_03.py`, `v3_engine_v2_03.py`, `ui_v2_03/`. Increment the version for future releases.
+Build the current launcher with `python unified_converter/build_launcher_v2_04.py`. The self-contained 2.03 archive can still be rebuilt with `python unified_converter/build_v2_03.py`. Sources: `constructs_v2_02.py`, `routing_v2_03.py`, `runtime_v2_03.py`, `v3_engine_v2_03.py`, `ui_v2_03/`. Increment the version for future releases.
 
 The original v2.0 upload and baseline, v2.01 repair, v2.02 fallback release, and earlier standalone releases remain available. Run `run_tests.py` for the original baseline or `run_v2_01_tests.py` for 2.01. Published notebooks are retained unchanged.
 

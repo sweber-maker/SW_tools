@@ -1,0 +1,261 @@
+{
+  "version": "2.04",
+  "notebook_sha256": "b0961273728d8e263998b85bf7eadddd8da1e66d98ea12415d5b13888fb4062e",
+  "tests_run": 13,
+  "passed": 13,
+  "failed": 0,
+  "errors": 0,
+  "cases": [
+    {
+      "id": "customer_01",
+      "filename": "Antibodies custom form v4.2_Amazon_TRKA.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 92,
+        "sequence_records_verified": 92,
+        "order_notes_verified": 0,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 1,
+      "extra_construct_rows": 0,
+      "archive": "Antibodies custom form v4.2_Amazon_TRKA_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_02",
+      "filename": "converted_VHH_V3.1_PTPRC.xlsx",
+      "format": "v31",
+      "status": "passed",
+      "checks": {
+        "designs": 21,
+        "sequence_records_verified": 21,
+        "order_notes_verified": 0,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 0,
+      "extra_construct_rows": 0,
+      "archive": "converted_VHH_V3.1_PTPRC_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_03",
+      "filename": "Twist Antibodies custom form v4.2_Final (1).xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 8,
+        "sequence_records_verified": 8,
+        "order_notes_verified": 0,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 1,
+      "extra_construct_rows": 0,
+      "archive": "Twist Antibodies custom form v4.2_Final (1)_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_04",
+      "filename": "Antibodies custom form v4.2_Epana_APRIL-VHH_1of2.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 12,
+        "sequence_records_verified": 12,
+        "order_notes_verified": 2,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 1,
+      "extra_construct_rows": 0,
+      "archive": "Antibodies custom form v4.2_Epana_APRIL-VHH_1of2_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_05",
+      "filename": "20260826_MDE125Round2_IgG_Dupilumab.xlsx",
+      "format": "v31",
+      "status": "passed",
+      "checks": {
+        "designs": 224,
+        "sequence_records_verified": 224,
+        "order_notes_verified": 1,
+        "missing_required_order_choices": 1
+      },
+      "ec_workbooks": 0,
+      "extra_construct_rows": 0,
+      "archive": "20260826_MDE125Round2_IgG_Dupilumab_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_06",
+      "filename": "Xaira_260925_ox40_VHH.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 93,
+        "sequence_records_verified": 93,
+        "order_notes_verified": 1,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 1,
+      "extra_construct_rows": 0,
+      "archive": "Xaira_260925_ox40_VHH_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_07",
+      "filename": "twist_order_260925_v42_il2 copy.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 186,
+        "sequence_records_verified": 186,
+        "order_notes_verified": 0,
+        "missing_required_order_choices": 5
+      },
+      "ec_workbooks": 2,
+      "extra_construct_rows": 0,
+      "archive": "twist_order_260925_v42_il2 copy_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_08",
+      "filename": "twist_order_260925_v42_il2.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 186,
+        "sequence_records_verified": 186,
+        "order_notes_verified": 0,
+        "missing_required_order_choices": 5
+      },
+      "ec_workbooks": 2,
+      "extra_construct_rows": 0,
+      "archive": "twist_order_260925_v42_il2_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_09",
+      "filename": "20260826_MDE125Round2_IgG_Dupilumab_v4_2ml.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 225,
+        "sequence_records_verified": 225,
+        "order_notes_verified": 0,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 1,
+      "extra_construct_rows": 0,
+      "archive": "20260826_MDE125Round2_IgG_Dupilumab_v4_2ml_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_10",
+      "filename": "07_23_Twist_QC_VHVL_order_final.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 93,
+        "sequence_records_verified": 93,
+        "order_notes_verified": 0,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 1,
+      "extra_construct_rows": 0,
+      "archive": "07_23_Twist_QC_VHVL_order_final_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_11",
+      "filename": "260910_Abcustomv4.2_Seranova_SW (1).xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 4,
+        "sequence_records_verified": 4,
+        "order_notes_verified": 2,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 1,
+      "extra_construct_rows": 0,
+      "archive": "260910_Abcustomv4.2_Seranova_SW (1)_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_12",
+      "filename": "07_23_Twist_QC_VHH_order_SW.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 186,
+        "sequence_records_verified": 186,
+        "order_notes_verified": 0,
+        "missing_required_order_choices": 0
+      },
+      "ec_workbooks": 1,
+      "extra_construct_rows": 0,
+      "archive": "07_23_Twist_QC_VHH_order_SW_converted_v2.04.zip"
+    },
+    {
+      "id": "customer_13",
+      "filename": "Antibodies custom form v4.2_Summit-20261102_SW3.xlsx",
+      "format": "v42",
+      "status": "passed",
+      "checks": {
+        "designs": 12,
+        "dna_constructs_verified": 33,
+        "prefixes_already_present": 33,
+        "dna_sequences_changed": 0,
+        "normal_v3_and_ec_rejected": true
+      },
+      "ec_workbooks": 0,
+      "extra_construct_rows": 9,
+      "archive": "Antibodies custom form v4.2_Summit-20261102_SW3_converted_v2.04.zip"
+    }
+  ],
+  "outcomes": [
+    {
+      "test": "__main__.CustomerTests.test_customer_01",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_02",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_03",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_04",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_05",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_06",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_07",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_08",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_09",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_10",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_11",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_12",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.CustomerTests.test_customer_13",
+      "status": "passed"
+    }
+  ],
+  "privacy": "No raw workbooks, sequences, contacts or customer notes stored in this report."
+}

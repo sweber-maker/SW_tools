@@ -62,7 +62,7 @@ def check(source,reference,notebook):
     with reference.open(encoding='utf-8-sig',newline='') as stream:rows=list(csv.DictReader(stream))
     result=compare(rows,fallback)
     if len(rows)!=expected['constructs']:raise AssertionError('Registered reference construct count changed')
-    result.update(source_sha256=expected['source_sha256'],reference_sha256=expected['reference_sha256'],notebook_sha256=hashlib.sha256(notebook.read_bytes()).hexdigest(),version='2.03')
+    result.update(source_sha256=expected['source_sha256'],reference_sha256=expected['reference_sha256'],notebook_sha256=hashlib.sha256(notebook.read_bytes()).hexdigest(),version=n['VERSION'])
     return result
 
 if __name__=='__main__':

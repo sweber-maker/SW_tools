@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.04
+
+- Replace the oversized single-code-line notebook with a 3.5 KB root START_HERE launcher and identical versioned notebook.
+- Download the frozen runtime package on ▶ from a versioned GitHub tag, verifying its SHA-256 before execution.
+- Validate proper notebook cell IDs/schema and display startup errors visibly. Preserve multi-file chooser and drag/drop.
+- Conversion logic is byte-identical to 2.03 apart from release identifiers. Ten launcher checks, all 13 private fixtures, and all 33 Summit reference inserts pass.
+
+
 ## 2.03
 
 - Extend the private catalog to 13 real files with Summit: nine three-construct and three two-construct rows. Normal routes reject it; the fallback exports 33 DNA constructs with existing prefixes retained. Converter code/notebook is unchanged; test coverage is extended.

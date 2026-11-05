@@ -1,39 +1,13 @@
 # SW_tools
 
-Personal tools. First tool: **v4.2 → v3.1 antibody form converter, version 1.03**.
+[**Open the converter in Google Colab**](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/START_HERE.ipynb)
 
-## Use in Google Colab
+**Current version: 2.04.** The notebook to use is [START_HERE.ipynb](START_HERE.ipynb), right here at the top of the repository.
 
-Open `converter/V4.2_to_V3.1_Fast_Batch_Fixed_converted_v1.03.ipynb` in Colab, click ▶ once to start, then drag files into the upload area or use **Choose files** to select one or multiple **v4.2 input workbooks**. Conversion starts automatically. Setup and implementation code are hidden by default. The supplied v3.1 template is embedded; you do not need to upload it. Each input produces a separately named ZIP, workbook, and review report. Download the ZIP using the button printed for that file.
+1. Open the Colab link and click **▶ Start converter** once.
+2. Drag one or multiple Excel/CSV files into the upload area, or click **Choose files**.
+3. Download the ZIP for each file.
 
-## Use locally or in Codex
+The small notebook loads its versioned converter package from GitHub after you start it. Downloads retain the original filename and converter version.
 
-```sh
-python -m pip install -r converter/requirements.txt
-python converter/convert.py 'your input.xlsx' --output-dir converted
-python -m unittest discover -s converter/tests -v
-```
-
-Outputs: `your input_converted_v1.03.xlsx`, matching ZIP, and JSON report. Repeating conversion with the same name/version in the same output directory replaces those generated outputs. Keep earlier releases in separate directories.
-
-## What version 1.03 does
-
-- Uses the supplied v3.1 template, retaining all six tabs, styling, merged cells, drawings, print settings, formulas, and supporting files. Writes worksheet XML directly to avoid openpyxl's loss of Excel extensions. Removes Excel dropdown controls while preserving cell colors and other validation.
-- Writes sequence data from row 4, preserving all three template heading/instruction rows. Maps source A:C and G:V to the v3.1 sequence fields. Preserves representable source isotypes; maps mini-binders using the supplied example and reports inferred isotypes. Rejects extra-construct/bispecific data rather than silently dropping it.
-- Reads Order Details by field labels (including aliases), not fixed row numbers. Only occupied source selection/note cells populate corresponding template fields. Does not insert order defaults. Reads the v4.2 Antibody Settings tab (or Order Details), with labels in A, selections in B, notes in C. Copies contact values from the source, preserving shipping/billing sections.
-- Reads dropdown choices from the template itself. Normalized exact matches use template spelling. Closest text matches are flagged for review. An unreliable match leaves the selection blank and retains the original in a note/report. Custom vector names and custom nucleotide sequences are retained.
-- Records unmapped fields and duplicate labels in the review report. Review all nonexact selections before submitting an order; similarity does not establish scientific equivalence.
-
-Validation includes synthetic tests for template structure/style preservation, occupied/blank Order Details, sequence placement, ZIP integrity and source-based naming. The supplied Amazon EGFR example converts 258 designs: all Sequence and Order Details values match the supplied expected workbook. Contact values intentionally follow the input because the expected workbook contains different contact details. Analytical SEC is occupied in the input but absent from the expected output; it is recorded as an unmapped request in the report. The workbook has been parsed successfully but has not been visually checked in Microsoft Excel.
-
-The original uploaded notebook is retained under `converter/originals/`; the supplied template is under `converter/templates/`.
-
-Version 1.03 upload controls were tested in Chromium with a mocked Colab kernel bridge: multi-file drag/drop, file picker, per-file error recovery and named ZIP download. Actual Colab browser integration still needs a user check. Optional browser check: `python converter/tests/check_upload_browser.py` requires Playwright and Chromium.
-
-## Unified converter v2.03
-
-The [unified converter](unified_converter/README.md) retains the repaired v3.1 output and labels EC outputs **EC_upload**. Any third/fourth construct rejects normal conversion for the whole workbook and triggers a separate, audited DNA-only construct table when DNA checks pass. Existing Kozak/leader prefixes are checked before concatenation; uncertain or non-DNA constructs produce a failure report instead of a partial table.
-
-[Open unified version 2.03 in Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/unified_converter/Twist_Unified_Intake_Converter_v2.03.ipynb). Multiple-file picker and drag/drop are supported. See the [test report](unified_converter/Twist_Unified_Intake_Converter_v2.03_test_report.md) for validation and three remaining shared CSV/EC defects. Earlier versions are retained.
-
-The [13-file private customer test list](unified_converter/customer_cases.json) and [validation report](unified_converter/Twist_Unified_Intake_Converter_v2.03_test_report.md) cover the initial 1,330 normal design rows plus a Summit extra-construct case with 33 verified DNA constructs. Raw customer workbooks and outputs are kept outside GitHub.
+Developer instructions, conversion rules, test results and older versions are under [unified_converter](unified_converter/README.md). Raw customer workbooks and DNA outputs stay outside GitHub.

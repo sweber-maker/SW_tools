@@ -118,7 +118,7 @@ def validate_fallback(source,bundle,case,engine,blob,inspection):
     return {'designs':designs,'dna_constructs_verified':len(actual),'prefixes_already_present':prefixes,'dna_sequences_changed':0,'normal_v3_and_ec_rejected':True}
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();group=p.add_mutually_exclusive_group(required=True);group.add_argument('--manifest',type=Path);group.add_argument('--fixtures-dir',type=Path);p.add_argument('--output-dir',type=Path,required=True);args=p.parse_args()
+    p=argparse.ArgumentParser();group=p.add_mutually_exclusive_group(required=True);group.add_argument('--manifest',type=Path);group.add_argument('--fixtures-dir',type=Path);p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--notebook',type=Path,default=ROOT/'Twist_Unified_Intake_Converter_v2.04.ipynb');args=p.parse_args()
     catalogue=json.loads((ROOT/'customer_cases.json').read_text())['cases']
     if args.manifest:
         locations={r['id']:Path(r['path']) for r in json.loads(args.manifest.read_text())}
@@ -127,7 +127,7 @@ if __name__=='__main__':
         for candidate in args.fixtures_dir.rglob('*'):
             if candidate.is_file() and candidate.suffix.lower()=='.xlsx':by_hash[hashlib.sha256(candidate.read_bytes()).hexdigest()]=candidate
         locations={case['id']:by_hash[case['sha256']] for case in catalogue if case['sha256'] in by_hash}
-    N=load_engine(ROOT/f'Twist_Unified_Intake_Converter_v{VERSION}.ipynb');results=[];args.output_dir.mkdir(parents=True,exist_ok=True)
+    N=load_engine(args.notebook);VERSION=N['VERSION'];results=[];args.output_dir.mkdir(parents=True,exist_ok=True)
     class CustomerTests(unittest.TestCase):pass
     def method(case):
         def run(self):
@@ -165,7 +165,7 @@ if __name__=='__main__':
         return run
     for case in catalogue:setattr(CustomerTests,'test_'+case['id'],method(case))
     result=unittest.TextTestRunner(verbosity=2,resultclass=RecordedResult).run(unittest.defaultTestLoader.loadTestsFromTestCase(CustomerTests))
-    report={'version':VERSION,'notebook_sha256':hashlib.sha256((ROOT/f'Twist_Unified_Intake_Converter_v{VERSION}.ipynb').read_bytes()).hexdigest(),'tests_run':result.testsRun,'passed':len(results),'failed':len(result.failures),'errors':len(result.errors),'cases':results,'outcomes':result.outcomes,'privacy':'No raw workbooks, sequences, contacts or customer notes stored in this report.'}
+    report={'version':VERSION,'notebook_sha256':hashlib.sha256(args.notebook.read_bytes()).hexdigest(),'tests_run':result.testsRun,'passed':len(results),'failed':len(result.failures),'errors':len(result.errors),'cases':results,'outcomes':result.outcomes,'privacy':'No raw workbooks, sequences, contacts or customer notes stored in this report.'}
     (ROOT/f'Twist_Unified_Intake_Converter_v{VERSION}_customer_test_results.json').write_text(json.dumps(report,indent=2))
     (args.output_dir/(Path(catalogue[0]['filename']).stem+f'_converted_v{VERSION}_batch_report.json')).write_text(json.dumps(report,indent=2))
     sys.exit(0 if result.wasSuccessful() else 1)

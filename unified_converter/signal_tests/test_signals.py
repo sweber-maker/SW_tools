@@ -4,7 +4,7 @@ import openpyxl
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from engine import load_engine
 from signals_v2_05 import resolve,dna,instruction,prepare
-N=load_engine(ROOT/'Twist_Unified_Intake_Converter_v2.05.ipynb')
+N=load_engine(ROOT.parent/'START_HERE.ipynb')
 DEFAULT='ATGAGAGCCTGGATCTTTTTCCTGCTGTGCCTGGCTGGGCGCGCCCTGGCC'
 MENU='Twist Vector: Leader fully contained in insert, replace this dropdown with SEQUENCE'
 K='GCCGCCACC'

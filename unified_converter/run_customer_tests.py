@@ -134,8 +134,38 @@ def validate_fallback(source,bundle,case,engine,blob,inspection):
     output.close()
     return {'designs':designs,'dna_constructs_verified':len(actual),'prefixes_already_present':prefixes,'dna_sequences_changed':0,'normal_v3_and_ec_rejected':True}
 
+
+def validate_intake_output(source,bundle,case,engine):
+    files=bundle.namelist()
+    require(not any(name.endswith(('_v3.1.xlsx','_v4.2.xlsx','_DNA_constructs.xlsx')) for name in files),'New input format emits EC_upload only')
+    outputs=[name for name in files if name.endswith('_EC_upload.xlsx')];require(len(outputs)==1,'Exactly one EC upload workbook for supplied intake')
+    report=list(csv.DictReader(io.StringIO(bundle.read(next(name for name in files if name.endswith('_report.csv'))).decode('utf-8-sig'))))
+    require(len(report)==1 and report[0]['Output']=='EC_upload' and report[0]['Status']=='OK','EC-only successful report')
+    rows=[row for row in source['Sequence'].iter_rows(min_row=2,max_col=22,values_only=True) if occupied(row[2])]
+    output=openpyxl.load_workbook(io.BytesIO(bundle.read(outputs[0])),data_only=True);sheet=output['Data entry'];headers={norm(c.value):c.column for c in sheet[3] if c.value}
+    generated=[row for row in sheet.iter_rows(min_row=4,values_only=True) if occupied(row[headers['iggname']-1])]
+    require(len(rows)==len(generated)==case['designs'],'All source records present in EC output')
+    fields={2:'iggname',8:'vhname',9:'vhvectornameinsertionsitename',11:'vhkozaksequencedna',13:'vhleadersequencedna',14:'vhvdjsequencednaoraa',15:'vlname',16:'vlvectornameinsertionsitename',18:'vlkozaksequencedna',20:'vlleadersequencedna',21:'vlsequencednaoraa'}
+    for original,converted in zip(rows,generated):
+        for column,key in fields.items():
+            if 'vector' in key:require(norm(original[column])==norm(converted[headers[key]-1]),'Vector identity/site preserved using the template spelling')
+            elif column in (11,13,18,20):require(sequence(original[column])==sequence(converted[headers[key]-1]),'Literal signal DNA bases preserved')
+            else:require(canonical(original[column])==canonical(converted[headers[key]-1]),'Names and both inserts preserved in original order')
+        for column,key in ((0,'plate'),(1,'well')):
+            if occupied(original[column]):require(canonical(original[column])==canonical(converted[headers[key]-1]),'Explicit source plate/well coordinates preserved')
+        for key in ('vhkozaksequencedna','vhleadersequencedna','vlkozaksequencedna','vlleadersequencedna'):
+            require(bool(re.fullmatch('[ACGT]+',sequence(converted[headers[key]-1]))),'EC signal fields contain literal DNA')
+    plate_count=len({canonical(row[headers['plate']-1]) for row in generated})
+    if all(not occupied(row[0]) and not occupied(row[1]) for row in rows):
+        require(plate_count==(len(rows)+95)//96,'Unassigned records receive the standard 96-well EC plate map')
+        coordinates={(canonical(row[headers['plate']-1]),canonical(row[headers['well']-1])) for row in generated}
+        require(len(coordinates)==len(generated),'Generated EC plate/well coordinates are unique')
+        require(all(re.fullmatch(r'[A-H](?:[1-9]|1[0-2])',well) for _,well in coordinates),'Generated wells are valid 96-well coordinates')
+    output.close()
+    return {'designs':len(rows),'ec_records_verified':len(generated),'primary_chain_sequences_preserved':len(rows)*2,'signal_fields_verified':len(rows)*4,'ec_plate_count':plate_count,'ec_only':True}
+
 if __name__=='__main__':
-    p=argparse.ArgumentParser();group=p.add_mutually_exclusive_group(required=True);group.add_argument('--manifest',type=Path);group.add_argument('--fixtures-dir',type=Path);p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--notebook',type=Path,default=ROOT/'Twist_Unified_Intake_Converter_v2.05.ipynb');args=p.parse_args()
+    p=argparse.ArgumentParser();group=p.add_mutually_exclusive_group(required=True);group.add_argument('--manifest',type=Path);group.add_argument('--fixtures-dir',type=Path);p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--notebook',type=Path,default=ROOT/'Twist_Unified_Intake_Converter_v2.06.ipynb');args=p.parse_args()
     catalogue=json.loads((ROOT/'customer_cases.json').read_text())['cases']
     if args.manifest:
         locations={r['id']:Path(r['path']) for r in json.loads(args.manifest.read_text())}
@@ -162,6 +192,9 @@ if __name__=='__main__':
                     if case['extra_constructs']:
                         checks=validate_fallback(source,bundle,case,N,blob,inspection)
                         ec=[]
+                    elif case.get('ec_only'):
+                        checks=validate_intake_output(source,bundle,case,N)
+                        ec=[name for name in files if name.endswith('_EC_upload.xlsx')]
                     else:
                         require(all(row['Status']=='OK' for row in report),'No failed conversion stages')
                         v3=[name for name in files if name.endswith('_v3.1.xlsx')];require(len(v3)==1,'Exactly one v3.1 output')

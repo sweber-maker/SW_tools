@@ -146,6 +146,18 @@
         "default_source": "Dropdown Lists!B18",
         "expected_length": 51
       }
+    },
+    {
+      "id": "customer_15",
+      "filename": "incyte_test.xlsx",
+      "sha256": "a1178e98f42a9cadbf0f8d3df72f07737d3a602da3432a6c59337ee61f1e1201",
+      "format": "sequence_intake",
+      "designs": 100,
+      "extra_constructs": false,
+      "ec_workbooks": 1,
+      "ec_only": true,
+      "source_header_row": 1,
+      "source_first_data_row": 2
     }
   ]
 }

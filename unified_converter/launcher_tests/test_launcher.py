@@ -56,9 +56,18 @@ class LauncherTests(unittest.TestCase):
             if 'signals' in current:
                 self.assertEqual(current['signals'],(ROOT/'signals_v2_05.py').read_text())
                 self.assertEqual(current['ec_engine'],(ROOT/'ec_engine_v2_05.py').read_text())
-                self.assertEqual(current['v3_engine'],(ROOT/'v3_engine_v2_05.py').read_text())
-                self.assertEqual(z.read('runtime.py').decode(),(ROOT/'runtime_v2_05.py').read_text())
-                # Remaining assets, routing and extra-construct rules remain frozen.
+                self.assertEqual(current['v3_engine'],(ROOT/'v3_engine_v2_05.py').read_text().replace("VERSION = '2.05'","VERSION = '"+VERSION+"'",1))
+                if 'intake' in current:
+                    self.assertEqual(current['intake'],(ROOT/'intake_v2_06.py').read_text())
+                    self.assertEqual(current['routing'],(ROOT/'routing_v2_06.py').read_text())
+                    self.assertEqual(z.read('runtime.py').decode(),(ROOT/'runtime_v2_06.py').read_text())
+                    del current['intake'];current['routing']=literals['RELEASE_SOURCES']['routing']
+                else:self.assertEqual(z.read('runtime.py').decode(),(ROOT/('runtime_v2_06.py' if 'intake' in current else 'runtime_v2_05.py')).read_text())
+                if 'intake' in current:
+                    self.assertEqual(current['intake'],(ROOT/'intake_v2_06.py').read_text())
+                    self.assertEqual(current['routing'],(ROOT/'routing_v2_06.py').read_text())
+                    del current['intake'];current['routing']=literals['RELEASE_SOURCES']['routing']
+                # Remaining template assets and extra-construct rules remain frozen.
                 del current['signals']
                 current['v3_engine']=literals['RELEASE_SOURCES']['v3_engine']
                 current['ec_engine']=literals['RELEASE_SOURCES']['ec_engine']

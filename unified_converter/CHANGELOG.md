@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.06
+
+- Add the header-detected, input-only row-1 Sequence intake format (22 v4.2-like columns). Produce EC_upload only.
+- Reuse existing signal-DNA handling, mixed-chain EC partitioning, versioned output names and extra-construct rejection/DNA fallback.
+- Validate column layout and incomplete named constructs; map diagnostic rows back to the original source.
+- Add Incyte as private case 15: 100 paired antibodies, 200 primary sequences and 400 signal-DNA fields preserved in one EC output.
+- Pass 17 format tests, 18 signal tests, 10 launcher checks, all 15 private fixtures and the 33-construct Summit reference.
+
+
 ## 2.05
 
 - Resolve source Twist leader/Kozak instruction fields from explicit source DNA definitions or exact known insert-prefix evidence.

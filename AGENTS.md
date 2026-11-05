@@ -7,3 +7,4 @@
 - Label 12-flavor EC outputs `EC_upload`.
 - Any 3rd/4th construct anywhere in a v4.2 workbook rejects all normal template conversions. Offer a separate, audited DNA-only construct table; never reverse translate protein, duplicate existing Kozak/leader sequences, or silently export a partially failed construct set.
 - Keep raw customer regression workbooks, sequences, contact data and converted customer outputs outside GitHub. Commit fixture catalogs/hashes and sanitized test results; missing private fixtures must not count as passing tests.
+- The row-1, 22-column Sequence intake format is input-only and routes to EC_upload only. Do not add v3.1/v4.2 outputs for it unless the user requests them; retain extra-construct rejection/DNA-fallback policy.

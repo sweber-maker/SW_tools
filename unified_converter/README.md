@@ -1,8 +1,14 @@
-# Unified intake converter — version 2.05
+# Unified intake converter — version 2.06
 
 [Open START_HERE in Google Colab](https://colab.research.google.com/github/sweber-maker/SW_tools/blob/main/START_HERE.ipynb)
 
-Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.05.zip`; every generated file inside retains that source name and release version. The new 3.5 KB launcher loads a checksum-verified runtime package after ▶, avoiding the huge embedded code line in older notebooks. See [the 2.04 launcher notes](LAUNCHER_V2_04.md). The 2.05 signal-field corrections are described below; output filenames identify version 2.05.
+Click ▶ once, then drag one or multiple XLSX/CSV files into the upload area or click **Choose files**. Each upload gets its own ZIP named `original upload_converted_v2.06.zip`; every generated file inside retains that source name and release version. The new 3.5 KB launcher loads a checksum-verified runtime package after ▶, avoiding the huge embedded code line in older notebooks. See [the 2.04 launcher notes](LAUNCHER_V2_04.md). The 2.05 signal-field corrections are described below; output filenames identify version 2.05.
+
+## Input-only Sequence intake in 2.06
+
+The row-1, 22-column Sequence table (such as `incyte_test.xlsx`) is now an **input-only EC_upload route**. Detection uses headers, not filenames. It does not generate v3.1/v4.2 outputs or expose an output in the source layout. The 100-antibody fixture retains all 200 primary sequences and signal DNA. See [format rules and test evidence](INPUT_ONLY_V2_06.md).
+
+All 17 new-format tests, 18 signal tests, 10 launcher checks and 15 private customer cases pass. [Release validation](releases/unified_v2.06_validation.json) records the tested notebook hash; [customer outcomes](Twist_Unified_Intake_Converter_v2.06_customer_test_results.json) contain no raw customer data.
 
 ## Leader DNA fix in 2.05
 
@@ -12,7 +18,7 @@ All 18 signal tests, 10 launcher checks and 14 real-file cases pass, including a
 
 ## Real-file regression set
 
-[The 14-file customer case list](customer_cases.json) now covers 12 v4.2 forms and two existing v3.1 forms. **All 14 pass** their expected conversion/rejection checks. The initial 12 files retain 1,330 normal design rows, including the duplicate IL2 upload. The Summit file has nine three-construct and three two-construct rows: both normal formats are rejected and a separate 33-construct DNA list is verified, with every supplied Kozak/leader prefix already present. See the [customer results](Twist_Unified_Intake_Converter_v2.03_customer_test_results.json) and [release report](Twist_Unified_Intake_Converter_v2.03_test_report.md).
+[The 15-file customer case list](customer_cases.json) now covers 12 v4.2 forms, two existing v3.1 forms and one row-1 Sequence intake. **All 15 pass** their expected conversion/rejection checks. The initial 12 files retain 1,330 normal design rows, including the duplicate IL2 upload. The Summit file has nine three-construct and three two-construct rows: both normal formats are rejected and a separate 33-construct DNA list is verified, with every supplied Kozak/leader prefix already present. See the [customer results](Twist_Unified_Intake_Converter_v2.03_customer_test_results.json) and [release report](Twist_Unified_Intake_Converter_v2.03_test_report.md).
 
 The SK case adds 64 paired designs with amino-acid inserts and a source-defined 51-base Twist leader.
 
@@ -29,6 +35,7 @@ The raw customer files remain private external fixtures; only filenames, hashes 
 - v4.2 input → template-preserving **v3.1** and **EC_upload**.
 - Paired Sequence Download CSV / supported legacy XLSX → v4.2, v3.1 and EC_upload.
 - EC input → v4.2.
+- Row-1 22-column Sequence intake → EC_upload only (input-only format).
 - Existing v3.1 input → normalized v3.1 (including existing service selections/notes).
 
 EC_upload means the EC workbook format. The tool selects the applicable one of the 12 EC template variants; it does not create 12 alternative orders for each input. All 12 variants are tested.
@@ -84,11 +91,11 @@ Optional browser check (Playwright + Chromium): `python unified_converter/tests_
 
 ## Launcher validation
 
-All 18 signal tests, 10 launcher checks and 14 private real-file cases pass against 2.05. See [validation details](LEADER_DNA_V2_05.md). The historical 2.03 report records the earlier baseline and three remaining CSV/EC limitations; current signal fixes have separate 2.05 coverage.
+All 17 input-format tests, 18 signal tests, 10 launcher checks and 15 private real-file cases pass against 2.06. See [validation details](LEADER_DNA_V2_05.md). The historical 2.03 report records the earlier baseline and three remaining CSV/EC limitations; current signal fixes have separate 2.05 coverage.
 
 ## Source and history
 
-Build the current launcher with `python unified_converter/build_launcher_v2_05.py`. The 2.05 runtime includes `signals_v2_05.py`, `ec_engine_v2_05.py`, `v3_engine_v2_05.py` and `runtime_v2_05.py`; routing/extra-construct rules remain frozen apart from version identifiers. The self-contained 2.03 archive can still be rebuilt with `python unified_converter/build_v2_03.py`. Sources: `constructs_v2_02.py`, `routing_v2_03.py`, `runtime_v2_03.py`, `v3_engine_v2_03.py`, `ui_v2_03/`. Increment the version for future releases.
+Build the current launcher with `python unified_converter/build_launcher_v2_06.py`. The new input is implemented in `intake_v2_06.py`, `routing_v2_06.py` and `runtime_v2_06.py`; its intermediate normalization is not an exported format. The 2.05 signal/EC fixes are inherited; 2.06 adds the input-only adapter and route while retaining the existing extra-construct rules. The self-contained 2.03 archive can still be rebuilt with `python unified_converter/build_v2_03.py`. Sources: `constructs_v2_02.py`, `routing_v2_03.py`, `runtime_v2_03.py`, `v3_engine_v2_03.py`, `ui_v2_03/`. Increment the version for future releases.
 
 The original v2.0 upload and baseline, v2.01 repair, v2.02 fallback release, and earlier standalone releases remain available. Run `run_tests.py` for the original baseline or `run_v2_01_tests.py` for 2.01. Published notebooks are retained unchanged.
 

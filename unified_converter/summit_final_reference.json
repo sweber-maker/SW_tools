@@ -1,0 +1,23 @@
+{
+  "case_id": "customer_13",
+  "source_filename": "Antibodies custom form v4.2_Summit-20261102_SW3.xlsx",
+  "source_sha256": "2a2a8ad5b16964e43f362c3747b90be97a8eaec079806c8153ee82457dfa4e06",
+  "reference_filename": "Summit Tx Bispecific 150mL Purified + Dev Final Sequence.csv",
+  "reference_sha256": "f2d3eff6433ffcae93cc1b350746b496cf9c7b60bc5f7a401b4acc522dc633e0",
+  "reference_format": "vendor_final_insert_and_full_construct_csv",
+  "constructs": 33,
+  "extra_rows": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "expected_status": "passed",
+  "comparison_field": "Insert sequence",
+  "note": "Construct sequence is the full vector construct and is validated separately for DNA, declared length and insert occurrence. No raw customer payload is stored in the repository."
+}

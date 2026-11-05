@@ -79,3 +79,7 @@ Optional browser check (Playwright + Chromium): `python unified_converter/tests_
 Build the self-contained release with `python unified_converter/build_v2_03.py`. Sources: `constructs_v2_02.py`, `routing_v2_03.py`, `runtime_v2_03.py`, `v3_engine_v2_03.py`, `ui_v2_03/`. Increment the version for future releases.
 
 The original v2.0 upload and baseline, v2.01 repair, v2.02 fallback release, and earlier standalone releases remain available. Run `run_tests.py` for the original baseline or `run_v2_01_tests.py` for 2.01. Published notebooks are retained unchanged.
+
+## Summit final CSV reference
+
+The [separate private-reference check](SUMMIT_REFERENCE.md) confirms that all 33 Summit fallback inserts match the supplied final-sequence CSV exactly, including names and vector/insertion-site metadata. It compares Insert sequence, not the full vector Construct sequence. This is reference validation, not a change to supported conversion routes.
